@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRESS.KZ</title>
+    <link rel="stylesheet" href="/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/opinions.css">
+</head>
+<body>
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="logo">
+                        <a href="/">
+                            <p>P</p>
+                            <p>RESS.KZ</p>
+                        </a>
+                    </div>
+                    <ul class="header-nav">
+                        <li><a href="/allnews">Новости</a></li>
+                        <li><a href="/analytics">Аналитика</a></li>
+                        <li><a href="/interview">Интервью</a></li>
+                        <li><a href="/opinions">Мнения</a></li>
+                    </ul>
+                    <div class="header-right">
+                        <div class="change-lang">
+                            <button class="header-lang" onclick="changeLang()"><img src="/img/lang.svg" alt="">
+                                <span id="currentLang">RU</span>
+                            </button>
+                        </div>
+                        <div class="menu-bar">
+                            <div class="menu-bar-burger"></div>
+                        </div> 
+                        <div class="currency">
+                            <ul>
+                                <li><svg width="12" height="23" viewBox="0 0 12 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6.50293 1.60001C6.50293 1.18579 6.16714 0.850006 5.75293 0.850006C5.33872 0.850006 5.00293 1.18579 5.00293 1.60001V4.15939C4.93012 4.16257 4.85761 4.16658 4.78546 4.17146C3.84879 4.23481 2.90036 4.4484 2.13867 4.94533C1.34503 5.46312 0.798525 6.26228 0.673635 7.36363C0.570219 8.27561 0.667949 9.06001 0.962978 9.72707C1.25958 10.3977 1.73088 10.8937 2.28214 11.2654C3.34106 11.9796 4.77094 12.2753 5.98562 12.5251L6.0954 12.5476C6.6889 12.6695 7.24152 12.783 7.7461 12.9258C8.28265 13.0777 8.71361 13.2495 9.03596 13.4622C9.34647 13.667 9.53987 13.8983 9.64207 14.183C9.74751 14.4768 9.78451 14.9081 9.63267 15.5576C9.49902 16.1294 9.12746 16.5444 8.5252 16.843C7.90339 17.1513 7.06891 17.3136 6.13538 17.3445C4.24886 17.407 2.2534 16.9286 1.38959 16.4518C1.02696 16.2516 0.570714 16.3833 0.37054 16.7459C0.170366 17.1086 0.302065 17.5648 0.664699 17.765C1.60726 18.2853 3.2897 18.7177 5.00293 18.8246V21.4C5.00293 21.8142 5.33872 22.15 5.75293 22.15C6.16714 22.15 6.50293 21.8142 6.50293 21.4V18.8286C7.44866 18.7695 8.39494 18.5819 9.19151 18.1869C10.0969 17.738 10.8352 17.003 11.0933 15.899C11.2893 15.0604 11.2847 14.3196 11.0539 13.6764C10.8198 13.0241 10.3823 12.5533 9.862 12.2101C9.35355 11.8746 8.75385 11.6522 8.15469 11.4825C7.59482 11.324 6.99062 11.2001 6.41212 11.0813L6.28771 11.0558C5.0004 10.7911 3.88734 10.5387 3.12082 10.0218C2.75937 9.77806 2.49733 9.48783 2.33479 9.12033C2.17068 8.74927 2.08345 8.24368 2.16408 7.53264C2.23715 6.88828 2.5283 6.48214 2.95828 6.20161C3.42023 5.90024 4.08142 5.7225 4.88666 5.66805C6.49717 5.55914 8.39859 5.96094 9.59149 6.38119C9.98217 6.51883 10.4104 6.3137 10.5481 5.92302C10.6857 5.53234 10.4806 5.10406 10.0899 4.96642C9.16504 4.64059 7.85116 4.31877 6.50293 4.199V1.60001Z" fill="white" fill-opacity="0.5"/>
+                                    </svg>
+                                    <p class="dollar">471.3</p>
+                                </li>
+                                <li><svg width="17" height="19" viewBox="0 0 17 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0867 0.260902C10.5374 -0.100651 8.93814 0.107195 7.49791 0.846748C6.06145 1.58437 4.85937 2.81062 4.02367 4.3475C3.69347 4.95474 3.42503 5.60184 3.22109 6.27501H1.134C0.719789 6.27501 0.384003 6.6108 0.384003 7.02501C0.384003 7.43922 0.719789 7.77501 1.134 7.77501H2.88031C2.79254 8.34198 2.74793 8.91938 2.74793 9.50001C2.74793 10.0806 2.79254 10.658 2.88031 11.225H1.134C0.719789 11.225 0.384003 11.5608 0.384003 11.975C0.384003 12.3892 0.719789 12.725 1.134 12.725H3.22109C3.42503 13.3982 3.69347 14.0453 4.02367 14.6525C4.85938 16.1894 6.06145 17.4157 7.49791 18.1533C8.93814 18.8928 10.5374 19.1007 12.0867 18.7391C13.633 18.3783 15.0334 17.4732 16.1233 16.1683C16.3888 15.8504 16.3463 15.3774 16.0284 15.1119C15.7105 14.8464 15.2375 14.8888 14.972 15.2067C14.0678 16.2893 12.9417 16.9993 11.7458 17.2784C10.553 17.5567 9.31658 17.401 8.1831 16.8189C7.04586 16.2349 6.0508 15.2405 5.34145 13.936C5.13234 13.5514 4.95149 13.1461 4.80042 12.725H10.5856C10.9998 12.725 11.3356 12.3892 11.3356 11.975C11.3356 11.5608 10.9998 11.225 10.5856 11.225H4.40101C4.29993 10.6625 4.24793 10.0842 4.24793 9.50001C4.24793 8.91581 4.29993 8.33757 4.40101 7.77501H10.5856C10.9998 7.77501 11.3356 7.43922 11.3356 7.02501C11.3356 6.6108 10.9998 6.27501 10.5856 6.27501H4.80042C4.9515 5.85393 5.13234 5.44862 5.34145 5.06406C6.0508 3.75955 7.04586 2.76508 8.1831 2.18111C9.31658 1.59907 10.553 1.44328 11.7458 1.72165C12.9417 2.00072 14.0678 2.71068 14.972 3.79328C15.2375 4.1112 15.7105 4.15368 16.0284 3.88815C16.3463 3.62263 16.3888 3.14966 16.1233 2.83175C15.0334 1.52679 13.633 0.621761 12.0867 0.260902Z" fill="white" fill-opacity="0.5"/>
+                                    </svg>
+                                    <p class="euro">520.13</p>
+                                </li>
+                                <li><svg width="17" height="21" viewBox="0 0 17 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3.52876 20.125V0.875H11.4051C12.4495 0.875 13.4512 1.3096 14.1898 2.08318C14.9283 2.85677 15.3432 3.90598 15.3432 5C15.3432 6.09402 14.9283 7.14323 14.1898 7.91682C13.4512 8.6904 12.4495 9.125 11.4051 9.125H0.90332" stroke="white" stroke-opacity="0.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M11.4051 14.625H0.90332" stroke="white" stroke-opacity="0.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>                     
+                                    <p class="rubel">5.3</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="header-nav-block">
+                    <div class="container">
+                                <div class="nav-item">
+                                    <ul>
+                                        <li><a href="/main">Новости</a></li>
+                                        <li><a href="/analytics">Аналитика</a></li>
+                                        <li><a href="/interview">Интервью</a></li>
+                                        <li><a href="/opinions">Мнения</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="header-nav-bottom">
+                                    <p class="footer-social-text">Мы в социальных сетях</p>
+                                    <div class="social-icons">
+                                        <li><a href=""><svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16 18.8C14.5 18.8 13.2 17.6 13.2 16C13.2 14.5 14.4 13.2 16 13.2C17.5 13.2 18.8 14.4 18.8 16C18.8 17.5 17.5 18.8 16 18.8Z" fill="white"/>
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.4 9.2H12.6C11.8 9.3 11.4 9.4 11.1 9.5C10.7 9.6 10.4 9.8 10.1 10.1C9.86261 10.3374 9.75045 10.5748 9.61489 10.8617C9.57916 10.9373 9.5417 11.0166 9.5 11.1C9.48453 11.1464 9.46667 11.1952 9.44752 11.2475C9.34291 11.5333 9.2 11.9238 9.2 12.6V19.4C9.3 20.2 9.4 20.6 9.5 20.9C9.6 21.3 9.8 21.6 10.1 21.9C10.3374 22.1374 10.5748 22.2495 10.8617 22.3851C10.9374 22.4209 11.0165 22.4583 11.1 22.5C11.1464 22.5155 11.1952 22.5333 11.2475 22.5525C11.5333 22.6571 11.9238 22.8 12.6 22.8H19.4C20.2 22.7 20.6 22.6 20.9 22.5C21.3 22.4 21.6 22.2 21.9 21.9C22.1374 21.6626 22.2495 21.4252 22.3851 21.1383C22.4209 21.0626 22.4583 20.9835 22.5 20.9C22.5155 20.8536 22.5333 20.8048 22.5525 20.7525C22.6571 20.4667 22.8 20.0762 22.8 19.4V12.6C22.7 11.8 22.6 11.4 22.5 11.1C22.4 10.7 22.2 10.4 21.9 10.1C21.6626 9.86261 21.4252 9.75045 21.1383 9.61488C21.0627 9.57918 20.9833 9.54167 20.9 9.5C20.8536 9.48453 20.8048 9.46666 20.7525 9.44752C20.4667 9.3429 20.0762 9.2 19.4 9.2ZM16 11.7C13.6 11.7 11.7 13.6 11.7 16C11.7 18.4 13.6 20.3 16 20.3C18.4 20.3 20.3 18.4 20.3 16C20.3 13.6 18.4 11.7 16 11.7ZM21.4 11.6C21.4 12.1523 20.9523 12.6 20.4 12.6C19.8477 12.6 19.4 12.1523 19.4 11.6C19.4 11.0477 19.8477 10.6 20.4 10.6C20.9523 10.6 21.4 11.0477 21.4 11.6Z" fill="white"/>
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16ZM12.6 7.7H19.4C20.3 7.8 20.9 7.9 21.4 8.1C22 8.4 22.4 8.6 22.9 9.1C23.4 9.6 23.7 10.1 23.9 10.6C24.1 11.1 24.3 11.7 24.3 12.6V19.4C24.2 20.3 24.1 20.9 23.9 21.4C23.6 22 23.4 22.4 22.9 22.9C22.4 23.4 21.9 23.7 21.4 23.9C20.9 24.1 20.3 24.3 19.4 24.3H12.6C11.7 24.2 11.1 24.1 10.6 23.9C10 23.6 9.6 23.4 9.1 22.9C8.6 22.4 8.3 21.9 8.1 21.4C7.9 20.9 7.7 20.3 7.7 19.4V12.6C7.8 11.7 7.9 11.1 8.1 10.6C8.4 10 8.6 9.6 9.1 9.1C9.6 8.6 10.1 8.3 10.6 8.1C11.1 7.9 11.7 7.7 12.6 7.7Z" fill="white"/>
+                                            </svg></a>
+                                        </li>
+                                        <li><a href=""><svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16 32C7.16344 32 0 24.8366 0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32ZM16.6919 12.0074C15.2589 12.6034 12.3949 13.8371 8.09992 15.7083C7.40248 15.9856 7.03714 16.257 7.00388 16.5223C6.94767 16.9706 7.50915 17.1472 8.27374 17.3876C8.37774 17.4203 8.4855 17.4542 8.59598 17.4901C9.34822 17.7346 10.3601 18.0207 10.8862 18.0321C11.3633 18.0424 11.8959 17.8457 12.4839 17.4419C16.4968 14.7331 18.5683 13.3639 18.6983 13.3344C18.7901 13.3136 18.9172 13.2874 19.0034 13.3639C19.0895 13.4405 19.0811 13.5855 19.0719 13.6244C19.0163 13.8615 16.8123 15.9106 15.6717 16.971C15.3161 17.3015 15.0639 17.536 15.0124 17.5896C14.8969 17.7096 14.7791 17.823 14.666 17.9321C13.9672 18.6058 13.4431 19.111 14.695 19.936C15.2967 20.3325 15.7781 20.6603 16.2584 20.9874C16.7829 21.3446 17.306 21.7009 17.9829 22.1446C18.1554 22.2576 18.3201 22.375 18.4805 22.4894C19.0909 22.9246 19.6393 23.3155 20.3168 23.2532C20.7105 23.217 21.1172 22.8468 21.3237 21.7427C21.8118 19.1335 22.7712 13.4801 22.9929 11.1505C23.0123 10.9464 22.9879 10.6851 22.9683 10.5705C22.9486 10.4558 22.9076 10.2924 22.7586 10.1715C22.582 10.0283 22.3095 9.99805 22.1877 10.0001C21.6335 10.01 20.7834 10.3056 16.6919 12.0074Z" fill="white"/>
+                                            </svg> </a>                                 
+                                        </li>
+                                        <li><a href=""><svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16ZM16 8C20.4 8 24 11.6 24 16C24 20 21.1 23.4 17.1 24V18.3H19L19.4 16H17.2V14.5C17.2 13.9 17.5 13.3 18.5 13.3H19.5V11.3C19.5 11.3 18.6 11.1 17.7 11.1C15.9 11.1 14.7 12.2 14.7 14.2V16H12.7V18.3H14.7V23.9C10.9 23.3 8 20 8 16C8 11.6 11.6 8 16 8Z" fill="white"/>
+                                            </svg></a>
+                                                                                
+                                        </li>
+                                        <li><a href=""><svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M18.6 16L14.4 13.6V18.4L18.6 16Z" fill="white"/>
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16ZM22.2 10.7C22.9 10.9 23.4 11.4 23.6 12.1C24 13.4 24 16 24 16C24 16 24 18.6 23.7 19.9C23.5 20.6 23 21.1 22.3 21.3C21 21.6 16 21.6 16 21.6C16 21.6 10.9 21.6 9.7 21.3C9 21.1 8.5 20.6 8.3 19.9C8 18.6 8 16 8 16C8 16 8 13.4 8.2 12.1C8.4 11.4 8.90001 10.9 9.60001 10.7C10.9 10.4 15.9 10.4 15.9 10.4C15.9 10.4 21 10.4 22.2 10.7Z" fill="white"/>
+                                            </svg></a>                               
+                                        </li>
+                                        <li><a href=""><svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16ZM22.1 11.5C22.8 11.4 23.4 11.3 24 11C23.6 11.7 23 12.3 22.3 12.7C22.5 17.4 19.1 22.5 13 22.5C11.2 22.5 9.5 21.9 8 21C9.7 21.2 11.5 20.7 12.7 19.8C11.2 19.8 10 18.8 9.6 17.5C10.1 17.6 10.6 17.5 11.1 17.4C9.6 17 8.5 15.6 8.5 14.1C9 14.3 9.5 14.5 10 14.5C8.6 13.5 8.1 11.6 9 10.1C10.7 12.1 13.1 13.4 15.8 13.5C15.3 11.5 16.9 9.5 19 9.5C19.9 9.5 20.8 9.9 21.4 10.5C22.2 10.3 22.9 10.1 23.5 9.7C23.3 10.5 22.8 11.1 22.1 11.5Z" fill="white"/>
+                                            </svg></a>
+                                                                        
+                                        </li>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+
+        <div class="currency-mobile">
+            <div class="currency">
+                <ul>
+                    <li><p class="kurs">USD/KZT: </p>
+                        <p class="dollar">471.3</p>
+                    </li>
+                    <li><p class="kurs">EUR/KZT: </p>
+                        <p class="euro">520.13</p>
+                    </li>
+                    <li><p class="kurs">RUB/KZT: </p>                     
+                        <p class="rubel">5.3</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="opinions-list">
+            <div class="container">
+                <h4 class="opinion-text" >МНЕНИЯ</h4>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row row-margin">
+                            <div class="col-sm-3">
+                                <div class="opinion-article">
+                                    <a class="article-item" href="">
+                                       <div class="item-top">
+                                           <div class="item-img">
+                                               <img src="/img/image 2.png" alt="">
+                                           </div>
+                                           <div class="item-header">
+                                               <p class="header-name">Дарын Айтказы</p>
+                                               <p class="header-specialty">мыхты разработчик</p>
+                                           </div>
+                                        
+                                       </div>
+                                       <div class="item-text">
+                                            <p class="text-heading">В правящую партию приходят молодые руководители. Как они изменят Казахстан?</p>
+                                            <!-- <p class="text-descrp">Политолог Данияр Ашимбаев рассказал о том, как меняется партия "Аманат".</p> -->
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="opinion-article">
+                                    <a class="article-item" href="">
+                                       <div class="item-top">
+                                           <div class="item-img">
+                                               <img src="/img/image 2.png" alt="">
+                                           </div>
+                                           <div class="item-header">
+                                               <p class="header-name">Дарын Айтказы</p>
+                                               <p class="header-specialty">сильный разработчик</p>
+                                           </div>
+                                        
+                                       </div>
+                                       <div class="item-text">
+                                            <p class="text-heading">В правящую партию приходят молодые руководители. Как они изменят Казахстан?</p>
+                                            <!-- <p class="text-descrp">Политолог Данияр Ашимбаев рассказал о том, как меняется партия "Аманат".</p> -->
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="opinion-article">
+                                    <a class="article-item" href="">
+                                       <div class="item-top">
+                                           <div class="item-img">
+                                               <img src="/img/image 2.png" alt="">
+                                           </div>
+                                           <div class="item-header">
+                                               <p class="header-name">Дарын Айтказы</p>
+                                               <p class="header-specialty">сильный разработчик</p>
+                                           </div>
+                                        
+                                       </div>
+                                       <div class="item-text">
+                                            <p class="text-heading">В правящую партию приходят молодые руководители. Как они изменят Казахстан?</p>
+                                            <!-- <p class="text-descrp">Политолог Данияр Ашимбаев рассказал о том, как меняется партия "Аманат".</p> -->
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="opinion-article">
+                                    <a class="article-item" href="">
+                                       <div class="item-top">
+                                           <div class="item-img">
+                                               <img src="/img/image 2.png" alt="">
+                                           </div>
+                                           <div class="item-header">
+                                               <p class="header-name">Дарын Айтказы</p>
+                                               <p class="header-specialty">сильный разработчик</p>
+                                           </div>
+                                        
+                                       </div>
+                                       <div class="item-text">
+                                            <p class="text-heading">В правящую партию приходят молодые руководители. Как они изменят Казахстан?</p>
+                                            <!-- <p class="text-descrp">Политолог Данияр Ашимбаев рассказал о том, как меняется партия "Аманат".</p> -->
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-margin">
+                            <div class="col-sm-3">
+                                <div class="opinion-article">
+                                    <a class="article-item" href="">
+                                       <div class="item-top">
+                                           <div class="item-img">
+                                               <img src="/img/image 2.png" alt="">
+                                           </div>
+                                           <div class="item-header">
+                                               <p class="header-name">Дарын Айтказы</p>
+                                               <p class="header-specialty">сильный разработчик</p>
+                                           </div>
+                                        
+                                       </div>
+                                       <div class="item-text">
+                                            <p class="text-heading">В правящую партию приходят молодые руководители. Как они изменят Казахстан?</p>
+                                            <!-- <p class="text-descrp">Политолог Данияр Ашимбаев рассказал о том, как меняется партия "Аманат".</p> -->
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="opinion-article">
+                                    <a class="article-item" href="">
+                                       <div class="item-top">
+                                           <div class="item-img">
+                                               <img src="/img/image 2.png" alt="">
+                                           </div>
+                                           <div class="item-header">
+                                               <p class="header-name">Дарын Айтказы</p>
+                                               <p class="header-specialty">сильный разработчик</p>
+                                           </div>
+                                        
+                                       </div>
+                                       <div class="item-text">
+                                            <p class="text-heading">В правящую партию приходят молодые руководители. Как они изменят Казахстан?</p>
+                                            <!-- <p class="text-descrp">Политолог Данияр Ашимбаев рассказал о том, как меняется партия "Аманат".</p> -->
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="opinion-article">
+                                    <a class="article-item" href="">
+                                       <div class="item-top">
+                                           <div class="item-img">
+                                               <img src="/img/image 2.png" alt="">
+                                           </div>
+                                           <div class="item-header">
+                                               <p class="header-name">Дарын Айтказы</p>
+                                               <p class="header-specialty">сильный разработчик</p>
+                                           </div>
+                                        
+                                       </div>
+                                       <div class="item-text">
+                                            <p class="text-heading">В правящую партию приходят молодые руководители. Как они изменят Казахстан?</p>
+                                            <!-- <p class="text-descrp">Политолог Данияр Ашимбаев рассказал о том, как меняется партия "Аманат".</p> -->
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="opinion-article">
+                                    <a class="article-item" href="">
+                                       <div class="item-top">
+                                           <div class="item-img">
+                                               <img src="/img/image 2.png" alt="">
+                                           </div>
+                                           <div class="item-header">
+                                               <p class="header-name">Дарын Айтказы</p>
+                                               <p class="header-specialty">сильный разработчик</p>
+                                           </div>
+                                        
+                                       </div>
+                                       <div class="item-text">
+                                            <p class="text-heading">В правящую партию приходят молодые руководители. Как они изменят Казахстан?</p>
+                                            <!-- <p class="text-descrp">Политолог Данияр Ашимбаев рассказал о том, как меняется партия "Аманат".</p> -->
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-margin">
+                            <div class="col-sm-3">
+                                <div class="opinion-article">
+                                    <a class="article-item" href="">
+                                       <div class="item-top">
+                                           <div class="item-img">
+                                               <img src="/img/image 2.png" alt="">
+                                           </div>
+                                           <div class="item-header">
+                                               <p class="header-name">Дарын Айтказы</p>
+                                               <p class="header-specialty">сильный разработчик</p>
+                                           </div>
+                                        
+                                       </div>
+                                       <div class="item-text">
+                                            <p class="text-heading">В правящую партию приходят молодые руководители. Как они изменят Казахстан?</p>
+                                            <!-- <p class="text-descrp">Политолог Данияр Ашимбаев рассказал о том, как меняется партия "Аманат".</p> -->
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="opinion-article">
+                                    <a class="article-item" href="">
+                                       <div class="item-top">
+                                           <div class="item-img">
+                                               <img src="/img/image 2.png" alt="">
+                                           </div>
+                                           <div class="item-header">
+                                               <p class="header-name">Дарын Айтказы</p>
+                                               <p class="header-specialty">сильный разработчик</p>
+                                           </div>
+                                        
+                                       </div>
+                                       <div class="item-text">
+                                            <p class="text-heading">В правящую партию приходят молодые руководители. Как они изменят Казахстан?</p>
+                                            <!-- <p class="text-descrp">Политолог Данияр Ашимбаев рассказал о том, как меняется партия "Аманат".</p> -->
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="opinion-article">
+                                    <a class="article-item" href="">
+                                       <div class="item-top">
+                                           <div class="item-img">
+                                               <img src="/img/image 2.png" alt="">
+                                           </div>
+                                           <div class="item-header">
+                                               <p class="header-name">Дарын Айтказы</p>
+                                               <p class="header-specialty">сильный разработчик</p>
+                                           </div>
+                                        
+                                       </div>
+                                       <div class="item-text">
+                                            <p class="text-heading">В правящую партию приходят молодые руководители. Как они изменят Казахстан?</p>
+                                            <!-- <p class="text-descrp">Политолог Данияр Ашимбаев рассказал о том, как меняется партия "Аманат".</p> -->
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="opinion-article">
+                                    <a class="article-item" href="">
+                                       <div class="item-top">
+                                           <div class="item-img">
+                                               <img src="/img/image 2.png" alt="">
+                                           </div>
+                                           <div class="item-header">
+                                               <p class="header-name">Дарын Айтказы</p>
+                                               <p class="header-specialty">сильный разработчик</p>
+                                           </div>
+                                        
+                                       </div>
+                                       <div class="item-text">
+                                            <p class="text-heading">В правящую партию приходят молодые руководители. Как они изменят Казахстан?</p>
+                                            <!-- <p class="text-descrp">Политолог Данияр Ашимбаев рассказал о том, как меняется партия "Аманат".</p> -->
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-margin">
+                            <div class="col-sm-3">
+                                <div class="opinion-article">
+                                    <a class="article-item" href="">
+                                       <div class="item-top">
+                                           <div class="item-img">
+                                               <img src="/img/image 2.png" alt="">
+                                           </div>
+                                           <div class="item-header">
+                                               <p class="header-name">Дарын Айтказы</p>
+                                               <p class="header-specialty">сильный разработчик</p>
+                                           </div>
+                                        
+                                       </div>
+                                       <div class="item-text">
+                                            <p class="text-heading">В правящую партию приходят молодые руководители. Как они изменят Казахстан?</p>
+                                            <!-- <p class="text-descrp">Политолог Данияр Ашимбаев рассказал о том, как меняется партия "Аманат".</p> -->
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="opinion-article">
+                                    <a class="article-item" href="">
+                                       <div class="item-top">
+                                           <div class="item-img">
+                                               <img src="/img/image 2.png" alt="">
+                                           </div>
+                                           <div class="item-header">
+                                               <p class="header-name">Дарын Айтказы</p>
+                                               <p class="header-specialty">сильный разработчик</p>
+                                           </div>
+                                        
+                                       </div>
+                                       <div class="item-text">
+                                            <p class="text-heading">В правящую партию приходят молодые руководители. Как они изменят Казахстан?</p>
+                                            <!-- <p class="text-descrp">Политолог Данияр Ашимбаев рассказал о том, как меняется партия "Аманат".</p> -->
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="opinion-article">
+                                    <a class="article-item" href="">
+                                       <div class="item-top">
+                                           <div class="item-img">
+                                               <img src="/img/image 2.png" alt="">
+                                           </div>
+                                           <div class="item-header">
+                                               <p class="header-name">Дарын Айтказы</p>
+                                               <p class="header-specialty">сильный разработчик</p>
+                                           </div>
+                                        
+                                       </div>
+                                       <div class="item-text">
+                                            <p class="text-heading">В правящую партию приходят молодые руководители. Как они изменят Казахстан?</p>
+                                            <!-- <p class="text-descrp">Политолог Данияр Ашимбаев рассказал о том, как меняется партия "Аманат".</p> -->
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="opinion-article">
+                                    <a class="article-item" href="">
+                                       <div class="item-top">
+                                           <div class="item-img">
+                                               <img src="/img/image 2.png" alt="">
+                                           </div>
+                                           <div class="item-header">
+                                               <p class="header-name">Дарын Айтказы</p>
+                                               <p class="header-specialty">сильный разработчик</p>
+                                           </div>
+                                        
+                                       </div>
+                                       <div class="item-text">
+                                            <p class="text-heading">В правящую партию приходят молодые руководители. Как они изменят Казахстан?</p>
+                                            <!-- <p class="text-descrp">Политолог Данияр Ашимбаев рассказал о том, как меняется партия "Аманат".</p> -->
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+
+                <div class="show-more">
+                    <button class="btn-more">Показать еще</button>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <p class="footer-text">Предложить свои материалы вы можете, отправив письмо на адрес: </p>
+                        <p class="footer-email"><svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.1111 23.7052H12C9.82441 23.7052 7.69767 23.0336 5.88873 21.7753C4.07979 20.517 2.66989 18.7285 1.83733 16.636C1.00477 14.5436 0.78693 12.241 1.21137 10.0197C1.6358 7.7983 2.68345 5.75783 4.22183 4.15631C5.76021 2.5548 7.72022 1.46415 9.85401 1.02229C11.9878 0.58043 14.1995 0.807208 16.2095 1.67394C18.2195 2.54068 19.9375 4.00845 21.1462 5.89163C22.3549 7.77482 23 9.98885 23 12.2537V14.1623C23 15.006 22.6781 15.8151 22.105 16.4116C21.532 17.0082 20.7548 17.3433 19.9444 17.3433C19.1341 17.3433 18.3569 17.0082 17.7838 16.4116C17.2108 15.8151 16.8889 15.006 16.8889 14.1623V12.2537C16.8889 10.9039 16.3738 9.60936 15.457 8.65489C14.5401 7.70041 13.2966 7.16419 12 7.16419V7.16419C11.0331 7.16419 10.0879 7.46269 9.28388 8.02194C8.47991 8.58118 7.85329 9.37606 7.48326 10.3061C7.11323 11.236 7.01641 12.2594 7.20505 13.2467C7.39369 14.2339 7.85931 15.1408 8.54304 15.8526C9.22676 16.5644 10.0979 17.0491 11.0462 17.2455C11.9946 17.4419 12.9776 17.3411 13.8709 16.9559C14.7642 16.5707 15.5278 15.9183 16.065 15.0813C16.6022 14.2444 16.8889 13.2604 16.8889 12.2537" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            press@press.kz
+                        </p>
+                        <p class="footer-phone"><svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.3447 15.3577C11.8134 17.918 14.9405 19.5484 16.8012 17.6289L17.2522 17.1614C17.854 16.5389 17.7698 15.5075 17.0713 15.0048C16.6315 14.6871 16.1592 14.3459 15.6365 13.9656C15.0963 13.5723 14.355 13.6335 13.8864 14.1154L13.3763 14.6402C12.7444 14.2248 12.1187 13.6921 11.5383 13.0905L11.5358 13.0879C10.9553 12.4862 10.4415 11.8377 10.0407 11.1827L10.547 10.6539C11.0131 10.1682 11.0709 9.39985 10.6915 8.83987C10.3234 8.29813 9.99423 7.80848 9.68894 7.35268C9.20399 6.62993 8.20895 6.54267 7.60842 7.16516L7.15739 7.63267C5.30552 9.56133 6.87848 12.8014 9.34721 15.3616M19.795 4.48509C17.7271 2.34026 14.9769 1.1578 12.0471 1.15649C6.00782 1.15649 1.09423 6.24706 1.09297 12.5045C1.09046 14.4956 1.59426 16.4529 2.55411 18.1784L1 24.0595L6.80686 22.4811C8.41374 23.3875 10.2128 23.8628 12.0421 23.8628H12.0471C18.0839 23.8628 22.9975 18.771 23 12.5136C23.0013 9.48189 21.863 6.63123 19.795 4.48509Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            +7 708 533 3126
+                        </p>
+                    </div>
+                    <div class="col-sm-5">
+                        <p class="footer-social-text">Мы в социальных сетях</p>
+                        <div class="social-icons">
+                            <li><a href=""><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 18.8C14.5 18.8 13.2 17.6 13.2 16C13.2 14.5 14.4 13.2 16 13.2C17.5 13.2 18.8 14.4 18.8 16C18.8 17.5 17.5 18.8 16 18.8Z" fill="white"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M19.4 9.2H12.6C11.8 9.3 11.4 9.4 11.1 9.5C10.7 9.6 10.4 9.8 10.1 10.1C9.86261 10.3374 9.75045 10.5748 9.61489 10.8617C9.57916 10.9373 9.5417 11.0166 9.5 11.1C9.48453 11.1464 9.46667 11.1952 9.44752 11.2475C9.34291 11.5333 9.2 11.9238 9.2 12.6V19.4C9.3 20.2 9.4 20.6 9.5 20.9C9.6 21.3 9.8 21.6 10.1 21.9C10.3374 22.1374 10.5748 22.2495 10.8617 22.3851C10.9374 22.4209 11.0165 22.4583 11.1 22.5C11.1464 22.5155 11.1952 22.5333 11.2475 22.5525C11.5333 22.6571 11.9238 22.8 12.6 22.8H19.4C20.2 22.7 20.6 22.6 20.9 22.5C21.3 22.4 21.6 22.2 21.9 21.9C22.1374 21.6626 22.2495 21.4252 22.3851 21.1383C22.4209 21.0626 22.4583 20.9835 22.5 20.9C22.5155 20.8536 22.5333 20.8048 22.5525 20.7525C22.6571 20.4667 22.8 20.0762 22.8 19.4V12.6C22.7 11.8 22.6 11.4 22.5 11.1C22.4 10.7 22.2 10.4 21.9 10.1C21.6626 9.86261 21.4252 9.75045 21.1383 9.61488C21.0627 9.57918 20.9833 9.54167 20.9 9.5C20.8536 9.48453 20.8048 9.46666 20.7525 9.44752C20.4667 9.3429 20.0762 9.2 19.4 9.2ZM16 11.7C13.6 11.7 11.7 13.6 11.7 16C11.7 18.4 13.6 20.3 16 20.3C18.4 20.3 20.3 18.4 20.3 16C20.3 13.6 18.4 11.7 16 11.7ZM21.4 11.6C21.4 12.1523 20.9523 12.6 20.4 12.6C19.8477 12.6 19.4 12.1523 19.4 11.6C19.4 11.0477 19.8477 10.6 20.4 10.6C20.9523 10.6 21.4 11.0477 21.4 11.6Z" fill="white"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16ZM12.6 7.7H19.4C20.3 7.8 20.9 7.9 21.4 8.1C22 8.4 22.4 8.6 22.9 9.1C23.4 9.6 23.7 10.1 23.9 10.6C24.1 11.1 24.3 11.7 24.3 12.6V19.4C24.2 20.3 24.1 20.9 23.9 21.4C23.6 22 23.4 22.4 22.9 22.9C22.4 23.4 21.9 23.7 21.4 23.9C20.9 24.1 20.3 24.3 19.4 24.3H12.6C11.7 24.2 11.1 24.1 10.6 23.9C10 23.6 9.6 23.4 9.1 22.9C8.6 22.4 8.3 21.9 8.1 21.4C7.9 20.9 7.7 20.3 7.7 19.4V12.6C7.8 11.7 7.9 11.1 8.1 10.6C8.4 10 8.6 9.6 9.1 9.1C9.6 8.6 10.1 8.3 10.6 8.1C11.1 7.9 11.7 7.7 12.6 7.7Z" fill="white"/>
+                                </svg></a>
+                            </li>
+                            <li><a href=""><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M16 32C7.16344 32 0 24.8366 0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32ZM16.6919 12.0074C15.2589 12.6034 12.3949 13.8371 8.09992 15.7083C7.40248 15.9856 7.03714 16.257 7.00388 16.5223C6.94767 16.9706 7.50915 17.1472 8.27374 17.3876C8.37774 17.4203 8.4855 17.4542 8.59598 17.4901C9.34822 17.7346 10.3601 18.0207 10.8862 18.0321C11.3633 18.0424 11.8959 17.8457 12.4839 17.4419C16.4968 14.7331 18.5683 13.3639 18.6983 13.3344C18.7901 13.3136 18.9172 13.2874 19.0034 13.3639C19.0895 13.4405 19.0811 13.5855 19.0719 13.6244C19.0163 13.8615 16.8123 15.9106 15.6717 16.971C15.3161 17.3015 15.0639 17.536 15.0124 17.5896C14.8969 17.7096 14.7791 17.823 14.666 17.9321C13.9672 18.6058 13.4431 19.111 14.695 19.936C15.2967 20.3325 15.7781 20.6603 16.2584 20.9874C16.7829 21.3446 17.306 21.7009 17.9829 22.1446C18.1554 22.2576 18.3201 22.375 18.4805 22.4894C19.0909 22.9246 19.6393 23.3155 20.3168 23.2532C20.7105 23.217 21.1172 22.8468 21.3237 21.7427C21.8118 19.1335 22.7712 13.4801 22.9929 11.1505C23.0123 10.9464 22.9879 10.6851 22.9683 10.5705C22.9486 10.4558 22.9076 10.2924 22.7586 10.1715C22.582 10.0283 22.3095 9.99805 22.1877 10.0001C21.6335 10.01 20.7834 10.3056 16.6919 12.0074Z" fill="white"/>
+                                </svg> </a>                                 
+                            </li>
+                            <li><a href=""><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16ZM16 8C20.4 8 24 11.6 24 16C24 20 21.1 23.4 17.1 24V18.3H19L19.4 16H17.2V14.5C17.2 13.9 17.5 13.3 18.5 13.3H19.5V11.3C19.5 11.3 18.6 11.1 17.7 11.1C15.9 11.1 14.7 12.2 14.7 14.2V16H12.7V18.3H14.7V23.9C10.9 23.3 8 20 8 16C8 11.6 11.6 8 16 8Z" fill="white"/>
+                                </svg></a>
+                                                                    
+                            </li>
+                            <li><a href=""><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18.6 16L14.4 13.6V18.4L18.6 16Z" fill="white"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16ZM22.2 10.7C22.9 10.9 23.4 11.4 23.6 12.1C24 13.4 24 16 24 16C24 16 24 18.6 23.7 19.9C23.5 20.6 23 21.1 22.3 21.3C21 21.6 16 21.6 16 21.6C16 21.6 10.9 21.6 9.7 21.3C9 21.1 8.5 20.6 8.3 19.9C8 18.6 8 16 8 16C8 16 8 13.4 8.2 12.1C8.4 11.4 8.90001 10.9 9.60001 10.7C10.9 10.4 15.9 10.4 15.9 10.4C15.9 10.4 21 10.4 22.2 10.7Z" fill="white"/>
+                                </svg></a>                               
+                            </li>
+                            <li><a href=""><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16ZM22.1 11.5C22.8 11.4 23.4 11.3 24 11C23.6 11.7 23 12.3 22.3 12.7C22.5 17.4 19.1 22.5 13 22.5C11.2 22.5 9.5 21.9 8 21C9.7 21.2 11.5 20.7 12.7 19.8C11.2 19.8 10 18.8 9.6 17.5C10.1 17.6 10.6 17.5 11.1 17.4C9.6 17 8.5 15.6 8.5 14.1C9 14.3 9.5 14.5 10 14.5C8.6 13.5 8.1 11.6 9 10.1C10.7 12.1 13.1 13.4 15.8 13.5C15.3 11.5 16.9 9.5 19 9.5C19.9 9.5 20.8 9.9 21.4 10.5C22.2 10.3 22.9 10.1 23.5 9.7C23.3 10.5 22.8 11.1 22.1 11.5Z" fill="white"/>
+                                </svg></a>
+                                                            
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="/js/main.js"></script>
+</body>
+</html>
