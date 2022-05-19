@@ -18,12 +18,13 @@ public class Analytics {
     private byte[] img;
     private long views;
     private long time_to_read;
+    private String link_name;
 
     public Analytics () {
 
     }
 
-    public Analytics(long id, long author_id, String title, String description, String text, java.util.Date createDate, long createTime, byte[] img, long views, long time_to_read) {
+    public Analytics(long id, long author_id, String title, String description, String text, Date createDate, long createTime, byte[] img, long views, long time_to_read, String link_name) {
         this.id = id;
         this.author_id = author_id;
         this.title = title;
@@ -34,6 +35,7 @@ public class Analytics {
         this.img = img;
         this.views = views;
         this.time_to_read = time_to_read;
+        this.link_name = link_name;
     }
 
     public long getId() {
@@ -114,5 +116,13 @@ public class Analytics {
 
     public void setTime_to_read(long time_to_read) {
         this.time_to_read = time_to_read;
+    }
+
+    public String getLink_name() {
+        return link_name;
+    }
+
+    public void setLink_name(String link_name) {
+        this.link_name = link_name;
     }
 }

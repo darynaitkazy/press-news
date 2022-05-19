@@ -46,4 +46,5 @@ public class NewsServiceImpl implements NewsService {
     public List<News> getPopuparElevenNews() {
         return newsRepository.getPopuparElevenNews();
     }
+
 }

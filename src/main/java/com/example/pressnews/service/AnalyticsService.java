@@ -10,4 +10,6 @@ public interface AnalyticsService {
     void saveAnalytics(Analytics analytics);
     List<Analytics> getAllAnalytics();
     Optional<Analytics> getAnalyticsById(Long id);
+    Optional<Analytics> getAnalyticsByLink_name(String link_name);
+    List<Analytics> getPopuparSevenAnalytics();
 }

@@ -1,6 +1,8 @@
 package com.example.pressnews.controller;
 
+import com.example.pressnews.model.Analytics;
 import com.example.pressnews.model.News;
+import com.example.pressnews.service.AnalyticsService;
 import com.example.pressnews.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -31,7 +33,8 @@ public class MainController {
     @Autowired
     private NewsService newsService;
 
-
+    @Autowired
+    private AnalyticsService analyticsService;
 
     @GetMapping("/")
     public String main(Model model) {
@@ -42,8 +45,14 @@ public class MainController {
         model.addAttribute("firstList", firstList);
         model.addAttribute("secondList", secondList);
         model.addAttribute("thirdList", thirdList);
-        Boolean checkActivity = false;
-        model.addAttribute("checkActivity", checkActivity);
+
+        List<Analytics> analytics = analyticsService.getPopuparSevenAnalytics();
+        List<Analytics> firstListAnalytics = analytics.subList(0, 1);
+        List<Analytics> secondListAnalytics = analytics.subList(1, 3);
+        List<Analytics> thirdListAnalytics = analytics.subList(3, 7);
+        model.addAttribute("firstListAnalytics", firstListAnalytics);
+        model.addAttribute("secondListAnalytics", secondListAnalytics);
+        model.addAttribute("thirdListAnalytics", thirdListAnalytics);
         return "main";
     }
 

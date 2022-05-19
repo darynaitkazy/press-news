@@ -108,7 +108,7 @@ public class NewsController {
         response.getOutputStream().close();
     }
 
-    @GetMapping("/{link_name}")
+    @GetMapping("news/{link_name}")
     String showNewsId(@PathVariable("link_name") String link_name,Optional<News> news, Model model) {
         try {
             if (link_name != null) {

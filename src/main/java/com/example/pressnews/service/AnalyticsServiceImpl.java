@@ -32,6 +32,14 @@ public class AnalyticsServiceImpl implements AnalyticsService{
         return analyticsRepository.findById(id);
     }
 
+    @Override
+    public Optional<Analytics> getAnalyticsByLink_name(String link_name) {
+        return analyticsRepository.getAnalyticsByLink_name(link_name);
+    }
 
+    @Override
+    public List<Analytics> getPopuparSevenAnalytics() {
+        return analyticsRepository.getPopuparSevenAnalytics();
+    }
 
 }

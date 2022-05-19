@@ -241,7 +241,7 @@
                             <div class="row" th:each="firstList: ${firstList}">
                                 <div class="col-sm-8">
                                     <div class="news-main-article">
-                                        <a class="article-item" href="/article">
+                                        <a class="article-item" th:href="@{news/{link_name}(link_name=${firstList.link_name})}">
                                             <div class="article-image"><img th:src="@{/news/display/{id}(id=${firstList.id})}"></div>
                                             <div class="image-cover"></div>
                                             <div class="article-title"><h3 th:text="${firstList.title}"></h3>
@@ -272,7 +272,7 @@
                                 <div class="row row-margin">
                                     <div class="col-sm-4" th:each="secondList : ${secondList}">
                                         <div class="news-article">
-                                            <a class="article-item" href="">
+                                            <a class="article-item" th:href="@{news/{link_name}(link_name=${secondList.link_name})}">
                                                 <div class="article-image"><img th:src="@{/news/display/{id}(id=${secondList.id})}"></div>
                                                 <div class="image-cover"></div>
                                                 <div class="article-title"><h3 th:text="${secondList.title}"></h3>
@@ -297,7 +297,7 @@
                     <div class="row row-margin">
                         <div class="col-sm-3" th:each="thirdList : ${thirdList}">
                             <div class="news-article">
-                                <a class="article-item" href="">
+                                <a class="article-item" th:href="@{news/{link_name}(link_name=${thirdList.link_name})}">
                                     <div class="article-image"><img th:src="@{/news/display/{id}(id=${thirdList.id})}"></div>
                                     <div class="image-cover"></div>
                                     <div class="article-title"><h3 th:text="${thirdList.title}"></h3>
@@ -329,80 +329,36 @@
             <div class="container">
                 <h4 class="analytics_title">АНАЛИТИКА</h4>
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" th:each="firstListAnalytics : ${firstListAnalytics}">
                         <div class="analytics-main-article">
-                            <a class="analytics-item" href="">
-                                <div class="analytics-img"><img src="/img/image 6.png" alt=""></div>
+                            <a class="analytics-item" th:href="@{analytics/{link_name}(link_name=${firstListAnalytics.link_name})}">
+                                <div class="analytics-img"><img th:src="@{/analytics/display/{id}(id=${firstListAnalytics.id})}"></div>
                                 <div class="image-cover"></div>
-                                <div class="analytics-title"><h3>На юге Казахстана АЗС объединились в Консорциум и требуют справедливости</h3>
+                                <div class="analytics-title"><h3 th:text="${firstListAnalytics.title}"></h3>
                                 </div>
                             </a>
                         </div>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-3" th:each="secondListAnalytics : ${secondListAnalytics}">
                         <div class="analytics-article">
-                            <a href="">
-                                <div class="analytics-img"><img src="/img/image 7.png" alt=""></div>
+                            <a th:href="@{analytics/{link_name}(link_name=${secondListAnalytics.link_name})}">
+                                <div class="analytics-img"><img th:src="@{/analytics/display/{id}(id=${secondListAnalytics.id})}"></div>
                                 <div class="analytics-text">
-                                    <div class="analytics-title"><h4>Конец эпохи Назарбаева: предательство с британским оттенком</h4></div>
-                                    <div class="analytics-description"><p>В городах захватывались здания акиматов и полицейские департаменты, как в Жамбылской области и Семее. </p></div>
+                                    <div class="analytics-title"><h4 th:text="${secondListAnalytics.title}"></h4></div>
+                                    <div class="analytics-description"><p th:text="${secondListAnalytics.description}"></p></div>
                                 </div>
                                 </a>
                         </div>
                     </div>
-                    <div class="col-sm-3">
-                        <div class="analytics-article">
-                            <a href="">
-                                <div class="analytics-img"><img src="/img/image 9.png" alt=""></div>
-                                <div class="analytics-text">
-                                <div class="analytics-title"><h4>Конец эпохи Назарбаева: предательство с британским оттенком</h4></div>
-                                <div class="analytics-description"><p>В городах захватывались здания акиматов и полицейские департаменты, как в Жамбылской области и Семее. </p></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-3">
+                <div class="row" >
+                    <div class="col-sm-3" th:each="thirdListAnalytics : ${thirdListAnalytics}">
                         <div class="analytics-article">
-                            <a href="">
-                                <div class="analytics-img"><img src="/img/image 8.png" alt=""></div>
+                            <a th:href="@{analytics/{link_name}(link_name=${thirdListAnalytics.link_name})}">
+                                <div class="analytics-img"><img th:src="@{/analytics/display/{id}(id=${thirdListAnalytics.id})}"></div>
                                 <div class="analytics-text">
-                                <div class="analytics-title"><h4>Конец эпохи Назарбаева: предательство с британским оттенком</h4></div>
-                                <div class="analytics-description"><p>В городах захватывались здания акиматов и полицейские департаменты, как в Жамбылской области и Семее. </p></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="analytics-article">
-                            <a href="">
-                                <div class="analytics-img"><img src="/img/image 10.png" alt=""></div>
-                                <div class="analytics-text">
-                                <div class="analytics-title"><h4>Конец эпохи Назарбаева: предательство с британским оттенком</h4></div>
-                                <div class="analytics-description"><p>В городах захватывались здания акиматов и полицейские департаменты, как в Жамбылской области и Семее. </p></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="analytics-article">
-                            <a href="">
-                                <div class="analytics-img"><img src="/img/image 9.png" alt=""></div>
-                                <div class="analytics-text">
-                                <div class="analytics-title"><h4>Конец эпохи Назарбаева: предательство с британским оттенком</h4></div>
-                                <div class="analytics-description"><p>В городах захватывались здания акиматов и полицейские департаменты, как в Жамбылской области и Семее. </p></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="analytics-article">
-                            <a href="">
-                                <div class="analytics-img"><img src="/img/image 7.png" alt=""></div>
-                                <div class="analytics-text">
-                                <div class="analytics-title"><h4>Конец эпохи Назарбаева: предательство с британским оттенком</h4></div>
-                                <div class="analytics-description"><p>В городах захватывались здания акиматов и полицейские департаменты, как в Жамбылской области и Семее. </p></div>
+                                <div class="analytics-title"><h4 th:text="${thirdListAnalytics.title}"></h4></div>
+                                <div class="analytics-description"><p th:text="${thirdListAnalytics.description}"></p></div>
                                 </div>
                             </a>
                         </div>

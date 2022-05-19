@@ -49,6 +49,7 @@ public class AnalyticsController {
     ResponseEntity<?> createAnalytics(@RequestParam("author_id") long author_id,
                                  @RequestParam("title") String title, @RequestParam("description") String description,
                                  @RequestParam("text") String txt, @RequestParam("time_to_read") int time_to_read,
+                                 @RequestParam("link_name") String link_name,
                                  Model model, HttpServletRequest request, final @RequestParam("img") MultipartFile file) {
         try {
             String uploadDirectoryAnalytics = request.getServletContext().getRealPath(uploadFolder);
@@ -61,6 +62,7 @@ public class AnalyticsController {
             String[] titles = title.split(",");
             String[] descriptions = description.split(",");
             String[] txts = txt.split(",");
+            String[] link_names = link_name.split(",");
             Date createDate = new Date();
             long createTime = createDate.getTime();
             try {
@@ -85,6 +87,7 @@ public class AnalyticsController {
             analytics.setCreateDate(createDate);
             analytics.setCreateTime(createTime);
             analytics.setTime_to_read(time_to_read);
+            analytics.setLink_name(link_names[0]);
             analyticsService.saveAnalytics(analytics);
                 return new ResponseEntity<>("Product Saved With File - " + fileName, HttpStatus.OK);
         } catch (Exception e) {
@@ -104,11 +107,25 @@ public class AnalyticsController {
         response.getOutputStream().close();
     }
 
-    @GetMapping("/analytics/{id}")
-    String showNewsId(@PathVariable("id") Long id, Optional<Analytics> analytics, Model model) {
+    @GetMapping("/analytics/{link_name}")
+    String showNewsId(@PathVariable("link_name") String link_name, Optional<Analytics> analytics, Model model) {
         try {
-            if (id != 0) {
-                analytics = analyticsService.getAnalyticsById(id);
+            if (link_name != null) {
+                analytics = analyticsService.getAnalyticsByLink_name(link_name);
+                Analytics analytics1 = new Analytics(
+                        analytics.get().getId(),
+                        analytics.get().getAuthor_id(),
+                        analytics.get().getTitle(),
+                        analytics.get().getDescription(),
+                        analytics.get().getText(),
+                        analytics.get().getCreateDate(),
+                        analytics.get().getCreateTime(),
+                        analytics.get().getImg(),
+                        analytics.get().getViews()+1,
+                        analytics.get().getTime_to_read(),
+                        analytics.get().getLink_name()
+                );
+                analyticsService.saveAnalytics(analytics1);
                 if (analytics.isPresent()) {
                     model.addAttribute("id", analytics.get().getId());
                     model.addAttribute("author_id", analytics.get().getAuthor_id());
@@ -118,6 +135,7 @@ public class AnalyticsController {
                     model.addAttribute("description", analytics.get().getDescription());
                     model.addAttribute("text", analytics.get().getText());
                     model.addAttribute("time_to_read", analytics.get().getTime_to_read());
+                    model.addAttribute("link_name", analytics.get().getLink_name());
                     return "article";
                 }
                 return "redirect:/";
