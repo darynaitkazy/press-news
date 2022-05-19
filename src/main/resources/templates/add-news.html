@@ -11,10 +11,12 @@
     <form action="/admin/add-news" method="post" enctype="multipart/form-data">
         <input type="number" name="author_id" placeholder="Введите id автора" class="form-control"><br>
         <input type="text" name="title" placeholder="Введите заголовок новости" class="form-control"><br>
+        <input type="text" name="description" placeholder="Введите описание новости" class="form-control"><br>
         <textarea name="text" placeholder="Введите содержание новости" class="form-control"></textarea><br>
-        <input type="number" step="0.01" name="price" placeholder="Введите цену продукта" class="form-control"><br>
-        <input type="file" name="file">
-        <button type="submit" class="btn btn-success">Добавить продукт</button>
+        <input type="text" name="link_name" placeholder="Введите как должна выглядеть ссылка" class="form-control"><br>
+        <input type="file" name="img" class="form-control">
+        <br>
+        <button type="submit" class="btn btn-success">Добавить новость</button>
     </form>
 </div>
 </body>

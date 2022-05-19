@@ -1,22 +1,52 @@
 package com.example.pressnews.controller;
 
+import com.example.pressnews.model.News;
+import com.example.pressnews.service.NewsService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Paths;
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class MainController {
+    @Value("${uploadDir}")
+    private String uploadFolder;
+
+    @Autowired
+    private NewsService newsService;
+
+
+
     @GetMapping("/")
-    public String main() {
+    public String main(Model model) {
+        List<News> news = newsService.getPopuparElevenNews();
+        List<News> firstList = news.subList(0,1);
+        List<News> secondList = news.subList(1, 7);
+        List<News> thirdList = news.subList(7, 11);
+        model.addAttribute("firstList", firstList);
+        model.addAttribute("secondList", secondList);
+        model.addAttribute("thirdList", thirdList);
+        Boolean checkActivity = false;
+        model.addAttribute("checkActivity", checkActivity);
         return "main";
     }
-    @GetMapping("/allnews")
-    public String allnews() {
-        return "allnews";
-    }
-    @GetMapping("/analytics")
-    public String analytics() {
-        return "analytics";
-    }
+
     @GetMapping("/interview")
     public String interview() {
         return "interview";
@@ -36,9 +66,6 @@ public class MainController {
         return "adminpanel";
     }
 
-    @GetMapping("/admin/add-news")
-    public String addnews() {
-        return "add-news";
-    }
+
 
 }

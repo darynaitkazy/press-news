@@ -1,11 +1,12 @@
 package com.example.pressnews.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.sql.Date;
-import java.sql.Time;
+import java.util.Date;
 
 @Entity
 public class News {
@@ -14,25 +15,29 @@ public class News {
     private long id;
     private long author_id;
     private String title;
+    private String description;
     private String text;
-    private java.sql.Date date;
-    private java.sql.Time time;
-    private String img;
+    private Date createDate;
+    private long createTime;
+    private byte[] img;
     private long views;
+    private String link_name;
 
     public News(){
 
     }
 
-    public News(long id, long author_id, String title, String text, Date date, Time time, String img, long views) {
+    public News(long id, long author_id, String title, String description, String text, Date createDate, long createTime, byte[] img, long views, String link_name) {
         this.id = id;
         this.author_id = author_id;
         this.title = title;
+        this.description = description;
         this.text = text;
-        this.date = date;
-        this.time = time;
+        this.createDate = createDate;
+        this.createTime = createTime;
         this.img = img;
         this.views = views;
+        this.link_name = link_name;
     }
 
     public long getId() {
@@ -59,6 +64,14 @@ public class News {
         this.title = title;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public String getText() {
         return text;
     }
@@ -67,27 +80,20 @@ public class News {
         this.text = text;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getCreateDate() {
+        return createDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
-    public Time getTime() {
-        return time;
-    }
 
-    public void setTime(Time time) {
-        this.time = time;
-    }
-
-    public String getImg() {
+    public byte[] getImg() {
         return img;
     }
 
-    public void setImg(String img) {
+    public void setImg(byte[] img) {
         this.img = img;
     }
 
@@ -97,5 +103,21 @@ public class News {
 
     public void setViews(long views) {
         this.views = views;
+    }
+
+    public long getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(long createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getLink_name() {
+        return link_name;
+    }
+
+    public void setLink_name(String link_name) {
+        this.link_name = link_name;
     }
 }

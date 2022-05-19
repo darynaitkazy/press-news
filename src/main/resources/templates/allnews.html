@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,7 +19,7 @@
                         </a>
                     </div>
                     <ul class="header-nav">
-                        <li><a href="/allnews">Новости</a></li>
+                        <li><a href="/news">Новости</a></li>
                         <li><a href="/analytics">Аналитика</a></li>
                         <li><a href="/interview">Интервью</a></li>
                         <li><a href="/opinions">Мнения</a></li>
@@ -60,7 +60,7 @@
                     <div class="container">
                                 <div class="nav-item">
                                     <ul>
-                                        <li><a href="/main">Новости</a></li>
+                                        <li><a href="/news">Новости</a></li>
                                         <li><a href="/analytics">Аналитика</a></li>
                                         <li><a href="/interview">Интервью</a></li>
                                         <li><a href="/opinions">Мнения</a></li>
@@ -129,9 +129,20 @@
                         <path d="M22 22L17.065 17.065M17.0707 3.7573C20.7471 7.43369 20.7471 13.3943 17.0707 17.0707C13.3943 20.7471 7.43369 20.7471 3.7573 17.0707C0.080901 13.3943 0.080901 7.43369 3.7573 3.7573C7.43369 0.080901 13.3943 0.080901 17.0707 3.7573Z" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>  
                 </div>
-
                 <div class="row">
-                    <div class="col-lg-10">
+                    <div th:each="news: ${news}" class="col-lg-10">
+                        <a th:href="@{/{link_name}(link_name=${news.link_name})}" class="news-card">
+                            <div class="card-img">
+                                <img th:src="@{/news/display/{id}(id=${news.id})}" alt="">
+                            </div>
+                            <div class="card-text">
+                                <h6 class="cardheader" th:text="${news.title}"></h6>
+                                <p class="card-short-description" th:text="${news.description}"></p>
+                                <p class="news-date"><span class="date" th:text="${#dates.format(news.createDate, 'dd/MM/yyyy')}"></span>
+                                    <span class="time" th:text="${#dates.format(news.createTime, 'HH:mm')}"></span></p>
+                            </div>
+                        </a>
+                        <!--
                             <a href="" class="news-card">
                                 <div class="card-img">
                                     <img src="/img/image 2.png" alt="">
@@ -202,6 +213,7 @@
                                 <p class="news-date"><span class="time">13:44</span>, <span class="date">22.02.2022</span></p>
                             </div>
                         </a>
+                        -->
                     </div>
                 </div>
                 <div class="show-more">

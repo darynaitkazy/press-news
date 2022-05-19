@@ -1,11 +1,8 @@
 package com.example.pressnews.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.sql.Date;
+import javax.persistence.*;
 import java.sql.Time;
+import java.util.Date;
 
 @Entity
 public class Analytics {
@@ -14,25 +11,27 @@ public class Analytics {
     private long id;
     private long author_id;
     private String title;
-    private java.sql.Date date;
-    private java.sql.Time time;
-    private String img;
+    private String description;
     private String text;
+    private java.util.Date createDate;
+    private long createTime;
+    private byte[] img;
     private long views;
-    private int time_to_read;
+    private long time_to_read;
 
     public Analytics () {
 
     }
 
-    public Analytics(long id, long author_id, String title, Date date, Time time, String img, String text, long views, int time_to_read) {
+    public Analytics(long id, long author_id, String title, String description, String text, java.util.Date createDate, long createTime, byte[] img, long views, long time_to_read) {
         this.id = id;
         this.author_id = author_id;
         this.title = title;
-        this.date = date;
-        this.time = time;
-        this.img = img;
+        this.description = description;
         this.text = text;
+        this.createDate = createDate;
+        this.createTime = createTime;
+        this.img = img;
         this.views = views;
         this.time_to_read = time_to_read;
     }
@@ -61,28 +60,12 @@ public class Analytics {
         this.title = title;
     }
 
-    public Date getDate() {
-        return date;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public Time getTime() {
-        return time;
-    }
-
-    public void setTime(Time time) {
-        this.time = time;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getText() {
@@ -93,6 +76,30 @@ public class Analytics {
         this.text = text;
     }
 
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public long getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(long createTime) {
+        this.createTime = createTime;
+    }
+
+    public byte[] getImg() {
+        return img;
+    }
+
+    public void setImg(byte[] img) {
+        this.img = img;
+    }
+
     public long getViews() {
         return views;
     }
@@ -101,11 +108,11 @@ public class Analytics {
         this.views = views;
     }
 
-    public int getTime_to_read() {
+    public long getTime_to_read() {
         return time_to_read;
     }
 
-    public void setTime_to_read(int time_to_read) {
+    public void setTime_to_read(long time_to_read) {
         this.time_to_read = time_to_read;
     }
 }

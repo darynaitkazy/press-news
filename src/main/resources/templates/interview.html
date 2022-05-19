@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,7 +19,7 @@
                         </a>
                     </div>
                     <ul class="header-nav">
-                        <li><a href="/allnews">Новости</a></li>
+                        <li><a href="/news">Новости</a></li>
                         <li><a href="/analytics">Аналитика</a></li>
                         <li><a href="/interview">Интервью</a></li>
                         <li><a href="/opinions">Мнения</a></li>
@@ -60,7 +60,7 @@
                     <div class="container">
                                 <div class="nav-item">
                                     <ul>
-                                        <li><a href="/main">Новости</a></li>
+                                        <li><a href="/news">Новости</a></li>
                                         <li><a href="/analytics">Аналитика</a></li>
                                         <li><a href="/interview">Интервью</a></li>
                                         <li><a href="/opinions">Мнения</a></li>
@@ -124,13 +124,13 @@
                 <h4 class="interview-text" >ИНТЕРВЬЮ</h4>
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="row row-margin">
+                        <div th:each="interviews: ${interviews}" class="row row-margin">
                             <div class="col-sm-3">
                                 <div class="interview-article">
                                     <a class="article-item" href="">
-                                        <div class="article-image"><img src="/img/image 2.png" alt=""></div>
+                                        <div class="article-image"><img th:src="@{/interviews/display/{id}(id=${interviews. id})}" alt=""></div>
                                         <div class="image-cover"></div>
-                                        <div class="article-title"><h3>Токаев выразил соболезнования семье Юрия Померанцева aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h3>
+                                        <div class="article-title"><h3 th:text="${interviews.title}"></h3>
                                         </div>
                                     </a>
                                 </div>
@@ -141,7 +141,7 @@
                                         <div class="article-image"><img src="/img/image 3.png" alt=""></div>
                                         <div class="image-cover"></div>
                                         <div class="article-title"><h3>Токаев выразил соболезнования семье Юрия Померанцева</h3>
-                                        
+
                                         </div>
                                     </a>
                                 </div>
