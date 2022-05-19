@@ -1,5 +1,6 @@
 function changeLang(){
     var lang = document.getElementById('currentLang');
+
     if (lang.textContent == "RU") {
         lang.textContent = "KZ";
     } else {

@@ -13,5 +13,11 @@ public interface NewsRepository extends JpaRepository<News, Long> {
     Optional<News>getNewsByLink_name(String link_name);
 
     @Query(value = "SELECT * FROM News ORDER BY views DESC LIMIT 11", nativeQuery = true)
-    List<News> getPopuparElevenNews();
+    List<News> getPopularElevenNews();
+
+    @Query(value = "SELECT * FROM News ORDER BY views DESC LIMIT 14", nativeQuery = true)
+    List<News> getPopularFourteenNews();
+
+    @Query(value = "SELECT * FROM News ORDER BY create_date DESC LIMIT 14", nativeQuery = true)
+    List<News> getRecentFourteenNews();
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -128,108 +129,21 @@
                         <div class="news-content">
                             <div class="news-content-scroll">
                                 <div class="scroll-switcher">
-                                    <div class="last-news" onclick="last_active()"><h5>Последние</h5></div>
-                                    <div class="popular-news" onclick="popular_active()"><h5>Популярные</h5></div>
+                                    <div class="last-news" onclick="last_active();changeType(0);"><h5>Последние</h5></div>
+                                    <div class="popular-news" onclick="popular_active();changeType(1);"><h5>Популярные</h5></div>
                                 </div>
                                 <div class="news-content-items">
-                                    <ul>
+                                    <ul id="recent-or-popular" th:each="el : ${list}">
                                         <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы</p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев </p>
-                                                </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы</p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
+                                            <a href="">
+                                                <p class="news-time"></p>
+                                                <p class="news-title" th:text="${el.title}"></p>
+                                                <p class="news-description" th:text="${el.description}"></p>
                                             </a>
                                         </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                         </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a></li>
                                     </ul>
                                 </div>
+
                                 <div class="news-content-bottom">
                                     <a class="all-news" href="/news">ВСЕ НОВОСТИ</a>
                                 </div>
@@ -479,6 +393,22 @@
         </footer>
 
         <script src="/js/main.js">
+        </script>
+
+        <script th:inline="javascript">
+            if([[${type}]] == 1){
+                lastnews.style.color = "#fff";
+                lastnews.style.background = "#005587";
+                popularnews.style.color = "#005587";
+                popularnews.style.background = "#fff";
+            }
+            function changeType(value){
+                if(value === 0){
+                    location.href = "http://localhost:8085";
+                }else{
+                    location.href = "http://localhost:8085?type="+value;
+                }
+            }
         </script>
 </body>
 </html>

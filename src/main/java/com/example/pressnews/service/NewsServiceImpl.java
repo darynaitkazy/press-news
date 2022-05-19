@@ -43,7 +43,17 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
-    public List<News> getPopuparElevenNews() {
-        return newsRepository.getPopuparElevenNews();
+    public List<News> getPopularElevenNews() {
+        return newsRepository.getPopularElevenNews();
+    }
+
+    @Override
+    public List<News> getPopularFourteenNews() {
+        return newsRepository.getPopularFourteenNews();
+    }
+
+    @Override
+    public List<News> getRecentFourteenNews() {
+        return newsRepository.getRecentFourteenNews();
     }
 }

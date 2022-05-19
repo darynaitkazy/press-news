@@ -4,24 +4,12 @@ import com.example.pressnews.model.News;
 import com.example.pressnews.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.file.Paths;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class MainController {
@@ -34,8 +22,8 @@ public class MainController {
 
 
     @GetMapping("/")
-    public String main(Model model) {
-        List<News> news = newsService.getPopuparElevenNews();
+    public String main(Model model, @RequestParam(required = false, defaultValue = "0") int type) {
+        List<News> news = newsService.getPopularElevenNews();
         List<News> firstList = news.subList(0,1);
         List<News> secondList = news.subList(1, 7);
         List<News> thirdList = news.subList(7, 11);
@@ -44,6 +32,17 @@ public class MainController {
         model.addAttribute("thirdList", thirdList);
         Boolean checkActivity = false;
         model.addAttribute("checkActivity", checkActivity);
+
+        List<News> listCurrent;
+
+        if(type == 0){
+            listCurrent = newsService.getRecentFourteenNews();
+        } else {
+            listCurrent = newsService.getPopularFourteenNews();
+        }
+        model.addAttribute("list", listCurrent);
+        model.addAttribute("type", type);
+
         return "main";
     }
 

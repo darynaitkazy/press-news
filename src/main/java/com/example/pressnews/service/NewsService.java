@@ -12,5 +12,7 @@ public interface NewsService {
     Optional<News> getNewsById(Long id);
     void deleteById(Long id);
     Optional<News> getNewsByLink_name(String link_name);
-    List<News> getPopuparElevenNews();
+    List<News> getPopularElevenNews();
+    List<News> getPopularFourteenNews();
+    List<News> getRecentFourteenNews();
 }
