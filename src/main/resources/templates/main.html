@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,7 +23,7 @@
                     <ul class="header-nav">
                         <li><a href="/news">Новости</a></li>
                         <li><a href="/analytics">Аналитика</a></li>
-                        <li><a href="/interview">Интервью</a></li>
+                        <li><a href="/interviews">Интервью</a></li>
                         <li><a href="/opinions">Мнения</a></li>
                     </ul>
                     <div class="header-right">
@@ -39,18 +40,18 @@
                                 <li><svg width="12" height="23" viewBox="0 0 12 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M6.50293 1.60001C6.50293 1.18579 6.16714 0.850006 5.75293 0.850006C5.33872 0.850006 5.00293 1.18579 5.00293 1.60001V4.15939C4.93012 4.16257 4.85761 4.16658 4.78546 4.17146C3.84879 4.23481 2.90036 4.4484 2.13867 4.94533C1.34503 5.46312 0.798525 6.26228 0.673635 7.36363C0.570219 8.27561 0.667949 9.06001 0.962978 9.72707C1.25958 10.3977 1.73088 10.8937 2.28214 11.2654C3.34106 11.9796 4.77094 12.2753 5.98562 12.5251L6.0954 12.5476C6.6889 12.6695 7.24152 12.783 7.7461 12.9258C8.28265 13.0777 8.71361 13.2495 9.03596 13.4622C9.34647 13.667 9.53987 13.8983 9.64207 14.183C9.74751 14.4768 9.78451 14.9081 9.63267 15.5576C9.49902 16.1294 9.12746 16.5444 8.5252 16.843C7.90339 17.1513 7.06891 17.3136 6.13538 17.3445C4.24886 17.407 2.2534 16.9286 1.38959 16.4518C1.02696 16.2516 0.570714 16.3833 0.37054 16.7459C0.170366 17.1086 0.302065 17.5648 0.664699 17.765C1.60726 18.2853 3.2897 18.7177 5.00293 18.8246V21.4C5.00293 21.8142 5.33872 22.15 5.75293 22.15C6.16714 22.15 6.50293 21.8142 6.50293 21.4V18.8286C7.44866 18.7695 8.39494 18.5819 9.19151 18.1869C10.0969 17.738 10.8352 17.003 11.0933 15.899C11.2893 15.0604 11.2847 14.3196 11.0539 13.6764C10.8198 13.0241 10.3823 12.5533 9.862 12.2101C9.35355 11.8746 8.75385 11.6522 8.15469 11.4825C7.59482 11.324 6.99062 11.2001 6.41212 11.0813L6.28771 11.0558C5.0004 10.7911 3.88734 10.5387 3.12082 10.0218C2.75937 9.77806 2.49733 9.48783 2.33479 9.12033C2.17068 8.74927 2.08345 8.24368 2.16408 7.53264C2.23715 6.88828 2.5283 6.48214 2.95828 6.20161C3.42023 5.90024 4.08142 5.7225 4.88666 5.66805C6.49717 5.55914 8.39859 5.96094 9.59149 6.38119C9.98217 6.51883 10.4104 6.3137 10.5481 5.92302C10.6857 5.53234 10.4806 5.10406 10.0899 4.96642C9.16504 4.64059 7.85116 4.31877 6.50293 4.199V1.60001Z" fill="white" fill-opacity="0.5"/>
                                     </svg>
-                                    <p class="dollar">471.3</p>
+                                    <p class="dollar" th:text="${usd}">#</p>
                                 </li>
                                 <li><svg width="17" height="23" viewBox="0 0 17 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0867 0.260902C10.5374 -0.100651 8.93814 0.107195 7.49791 0.846748C6.06145 1.58437 4.85937 2.81062 4.02367 4.3475C3.69347 4.95474 3.42503 5.60184 3.22109 6.27501H1.134C0.719789 6.27501 0.384003 6.6108 0.384003 7.02501C0.384003 7.43922 0.719789 7.77501 1.134 7.77501H2.88031C2.79254 8.34198 2.74793 8.91938 2.74793 9.50001C2.74793 10.0806 2.79254 10.658 2.88031 11.225H1.134C0.719789 11.225 0.384003 11.5608 0.384003 11.975C0.384003 12.3892 0.719789 12.725 1.134 12.725H3.22109C3.42503 13.3982 3.69347 14.0453 4.02367 14.6525C4.85938 16.1894 6.06145 17.4157 7.49791 18.1533C8.93814 18.8928 10.5374 19.1007 12.0867 18.7391C13.633 18.3783 15.0334 17.4732 16.1233 16.1683C16.3888 15.8504 16.3463 15.3774 16.0284 15.1119C15.7105 14.8464 15.2375 14.8888 14.972 15.2067C14.0678 16.2893 12.9417 16.9993 11.7458 17.2784C10.553 17.5567 9.31658 17.401 8.1831 16.8189C7.04586 16.2349 6.0508 15.2405 5.34145 13.936C5.13234 13.5514 4.95149 13.1461 4.80042 12.725H10.5856C10.9998 12.725 11.3356 12.3892 11.3356 11.975C11.3356 11.5608 10.9998 11.225 10.5856 11.225H4.40101C4.29993 10.6625 4.24793 10.0842 4.24793 9.50001C4.24793 8.91581 4.29993 8.33757 4.40101 7.77501H10.5856C10.9998 7.77501 11.3356 7.43922 11.3356 7.02501C11.3356 6.6108 10.9998 6.27501 10.5856 6.27501H4.80042C4.9515 5.85393 5.13234 5.44862 5.34145 5.06406C6.0508 3.75955 7.04586 2.76508 8.1831 2.18111C9.31658 1.59907 10.553 1.44328 11.7458 1.72165C12.9417 2.00072 14.0678 2.71068 14.972 3.79328C15.2375 4.1112 15.7105 4.15368 16.0284 3.88815C16.3463 3.62263 16.3888 3.14966 16.1233 2.83175C15.0334 1.52679 13.633 0.621761 12.0867 0.260902Z" fill="white" fill-opacity="0.5"/>
                                     </svg>
-                                    <p class="euro">520.13</p>
+                                    <p class="euro" th:text="${eur}">#</p>
                                 </li>
                                 <li><svg width="15" height="23" viewBox="0 0 17 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M3.52876 20.125V0.875H11.4051C12.4495 0.875 13.4512 1.3096 14.1898 2.08318C14.9283 2.85677 15.3432 3.90598 15.3432 5C15.3432 6.09402 14.9283 7.14323 14.1898 7.91682C13.4512 8.6904 12.4495 9.125 11.4051 9.125H0.90332" stroke="white" stroke-opacity="0.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     <path d="M11.4051 14.625H0.90332" stroke="white" stroke-opacity="0.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>                     
-                                    <p class="rubel">5.3</p>
+                                    <p class="rubel" th:text="${rub}">#</p>
                                 </li>
                             </ul>
                         </div>
@@ -63,7 +64,7 @@
                                     <ul>
                                         <li><a href="/main">Новости</a></li>
                                         <li><a href="/analytics">Аналитика</a></li>
-                                        <li><a href="/interview">Интервью</a></li>
+                                        <li><a href="/interviews">Интервью</a></li>
                                         <li><a href="/opinions">Мнения</a></li>
                                     </ul>
                                 </div>
@@ -108,13 +109,13 @@
             <div class="currency">
                 <ul>
                     <li><p class="kurs">USD/KZT: </p>
-                        <p class="dollar">471.3</p>
+                        <p class="dollar" th:text="${usd}">#</p>
                     </li>
                     <li><p class="kurs">EUR/KZT: </p>
-                        <p class="euro">520.13</p>
+                        <p class="euro" th:text="${eur}">#</p>
                     </li>
                     <li><p class="kurs">RUB/KZT: </p>                     
-                        <p class="rubel">5.3</p>
+                        <p class="rubel" th:text="${rub}">#</p>
                     </li>
                 </ul>
             </div>
@@ -128,108 +129,22 @@
                         <div class="news-content">
                             <div class="news-content-scroll">
                                 <div class="scroll-switcher">
-                                    <div class="last-news" onclick="last_active()"><h5>Последние</h5></div>
-                                    <div class="popular-news" onclick="popular_active()"><h5>Популярные</h5></div>
+                                    <div class="last-news" onclick="last_active();changeType(0);"><h5>Последние</h5></div>
+                                    <div class="popular-news" onclick="popular_active();changeType(1);"><h5>Популярные</h5></div>
                                 </div>
                                 <div class="news-content-items">
-                                    <ul>
+                                    <ul id="recent-or-popular" th:each="el : ${list}">
                                         <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы</p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев </p>
-                                                </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы</p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
+                                            <a th:href="@{news/{link_name}(link_name=${el.link_name})}">
+                                                <p class="news-time"><span class="date" th:text="${#dates.format(el.createDate, 'dd/MM/yyyy')}"></span>
+                                                </p>
+                                                <p class="news-title" th:text="${el.title}"></p>
+                                                <p class="news-description" th:text="${el.description}"></p>
                                             </a>
                                         </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                         </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a></li>
                                     </ul>
                                 </div>
+
                                 <div class="news-content-bottom">
                                     <a class="all-news" href="/news">ВСЕ НОВОСТИ</a>
                                 </div>
@@ -257,20 +172,14 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
-                                    <!-- <div class="news-article">
-                                        <a class="article-item" href="">
-                                            <div class="article-image"><img src="img/image 2.png" alt=""></div>
-                                            <div class="image-cover"></div>
-                                            <div class="article-title"><h3>Токаев выразил соболезнования семье Юрия Померанцева</h3></div>
-                                        </a>
-                                    </div> -->
+
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="row row-margin">
-                                    <div class="col-sm-4" th:each="secondList : ${secondList}">
+                                    <div class="col-sm-4 mb-3" th:each="secondList : ${secondList}">
                                         <div class="news-article">
                                             <a class="article-item" th:href="@{news/{link_name}(link_name=${secondList.link_name})}">
                                                 <div class="article-image"><img th:src="@{/news/display/{id}(id=${secondList.id})}"></div>
@@ -366,7 +275,7 @@
                 </div>
 
                 <div class="others">
-                    <a href="analytics.html">Смотреть другие статьи <svg width="18" height="20" viewBox="0 0 23 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <a href="/analytics">Смотреть другие статьи <svg width="18" height="20" viewBox="0 0 23 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7.65234 0.421266C7.52632 0.419104 7.39948 0.464856 7.30168 0.559361C7.10607 0.748369 7.10073 1.0598 7.28974 1.25541L20.9784 15.4219L6.81196 29.1102C6.61636 29.2989 6.61101 29.611 6.80003 29.8062C6.98903 30.0018 7.30047 30.0072 7.49608 29.8182L22.0163 15.7876C22.2119 15.5989 22.2173 15.2868 22.0283 15.0916L7.99773 0.5713C7.90355 0.473502 7.77836 0.423427 7.65234 0.421266Z" fill="#005587"/>
                         <path d="M1.08892 0.308717C0.962907 0.306555 0.836068 0.352307 0.738265 0.446812C0.542658 0.63582 0.537317 0.947252 0.726326 1.14286L14.415 15.3093L0.248549 28.9976C0.0529478 29.1863 0.0475946 29.4984 0.23661 29.6937C0.425619 29.8893 0.737053 29.8946 0.932659 29.7056L15.4529 15.6751C15.6485 15.4864 15.6539 15.1743 15.4649 14.979L1.43431 0.458751C1.34014 0.360953 1.21494 0.310878 1.08892 0.308717Z" fill="#005587"/>
                         </svg>
@@ -376,12 +285,7 @@
         </section>
 
         <section class="digest-news">
-            <div class="digest-content">
-                <h4 class="digest-title">Дайджест новостей</h4>
-                <p class="digest-body">Подпишитесь на недельный обзор главных казахстанских и мировых событий</p>
-                <input type="email" class="digest-email" placeholder="Введите E-mail">
-                <button class="btn-digest">Подписаться на новости</button>
-            </div>
+
         </section>
 
         <footer>
@@ -435,6 +339,22 @@
         </footer>
 
         <script src="/js/main.js">
+        </script>
+
+        <script th:inline="javascript">
+            if([[${type}]] == 1){
+                lastnews.style.color = "#fff";
+                lastnews.style.background = "#005587";
+                popularnews.style.color = "#005587";
+                popularnews.style.background = "#fff";
+            }
+            function changeType(value){
+                if(value === 0){
+                    location.href = "http://localhost:8085";
+                }else{
+                    location.href = "http://localhost:8085?type="+value;
+                }
+            }
         </script>
 </body>
 </html>

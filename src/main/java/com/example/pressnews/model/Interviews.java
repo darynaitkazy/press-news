@@ -10,31 +10,40 @@ public class Interviews {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private long author_id;
-    private String title;
-    private String description;
-    private String text;
     private java.util.Date createDate;
     private long createTime;
     private byte[] img;
     private long views;
-    @Column(name="time_to_read")
     private long time_to_read;
+    private String link_name;
+    private String title;
+    private String description;
+    private String text;
+    private String link_name_kaz;
+    private String title_kaz;
+    private String description_kaz;
+    private String text_kaz;
 
-    public Interviews () {
+    public Interviews() {
 
     }
 
-    public Interviews(long id, long author_id, String title, String description, String text, java.util.Date createDate, long createTime, byte[] img, long views, long time_to_read) {
+    public Interviews(long id, long author_id, Date createDate, long createTime, byte[] img, long views, long time_to_read, String link_name, String title, String description, String text, String link_name_kaz, String title_kaz, String description_kaz, String text_kaz) {
         this.id = id;
         this.author_id = author_id;
-        this.title = title;
-        this.description = description;
-        this.text = text;
         this.createDate = createDate;
         this.createTime = createTime;
         this.img = img;
         this.views = views;
         this.time_to_read = time_to_read;
+        this.link_name = link_name;
+        this.title = title;
+        this.description = description;
+        this.text = text;
+        this.link_name_kaz = link_name_kaz;
+        this.title_kaz = title_kaz;
+        this.description_kaz = description_kaz;
+        this.text_kaz = text_kaz;
     }
 
     public long getId() {
@@ -51,30 +60,6 @@ public class Interviews {
 
     public void setAuthor_id(long author_id) {
         this.author_id = author_id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
     }
 
     public Date getCreateDate() {
@@ -115,5 +100,69 @@ public class Interviews {
 
     public void setTime_to_read(long time_to_read) {
         this.time_to_read = time_to_read;
+    }
+
+    public String getLink_name() {
+        return link_name;
+    }
+
+    public void setLink_name(String link_name) {
+        this.link_name = link_name;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public String getLink_name_kaz() {
+        return link_name_kaz;
+    }
+
+    public void setLink_name_kaz(String link_name_kaz) {
+        this.link_name_kaz = link_name_kaz;
+    }
+
+    public String getTitle_kaz() {
+        return title_kaz;
+    }
+
+    public void setTitle_kaz(String title_kaz) {
+        this.title_kaz = title_kaz;
+    }
+
+    public String getDescription_kaz() {
+        return description_kaz;
+    }
+
+    public void setDescription_kaz(String description_kaz) {
+        this.description_kaz = description_kaz;
+    }
+
+    public String getText_kaz() {
+        return text_kaz;
+    }
+
+    public void setText_kaz(String text_kaz) {
+        this.text_kaz = text_kaz;
     }
 }

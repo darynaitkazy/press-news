@@ -38,18 +38,18 @@
                                 <li><svg width="12" height="23" viewBox="0 0 12 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M6.50293 1.60001C6.50293 1.18579 6.16714 0.850006 5.75293 0.850006C5.33872 0.850006 5.00293 1.18579 5.00293 1.60001V4.15939C4.93012 4.16257 4.85761 4.16658 4.78546 4.17146C3.84879 4.23481 2.90036 4.4484 2.13867 4.94533C1.34503 5.46312 0.798525 6.26228 0.673635 7.36363C0.570219 8.27561 0.667949 9.06001 0.962978 9.72707C1.25958 10.3977 1.73088 10.8937 2.28214 11.2654C3.34106 11.9796 4.77094 12.2753 5.98562 12.5251L6.0954 12.5476C6.6889 12.6695 7.24152 12.783 7.7461 12.9258C8.28265 13.0777 8.71361 13.2495 9.03596 13.4622C9.34647 13.667 9.53987 13.8983 9.64207 14.183C9.74751 14.4768 9.78451 14.9081 9.63267 15.5576C9.49902 16.1294 9.12746 16.5444 8.5252 16.843C7.90339 17.1513 7.06891 17.3136 6.13538 17.3445C4.24886 17.407 2.2534 16.9286 1.38959 16.4518C1.02696 16.2516 0.570714 16.3833 0.37054 16.7459C0.170366 17.1086 0.302065 17.5648 0.664699 17.765C1.60726 18.2853 3.2897 18.7177 5.00293 18.8246V21.4C5.00293 21.8142 5.33872 22.15 5.75293 22.15C6.16714 22.15 6.50293 21.8142 6.50293 21.4V18.8286C7.44866 18.7695 8.39494 18.5819 9.19151 18.1869C10.0969 17.738 10.8352 17.003 11.0933 15.899C11.2893 15.0604 11.2847 14.3196 11.0539 13.6764C10.8198 13.0241 10.3823 12.5533 9.862 12.2101C9.35355 11.8746 8.75385 11.6522 8.15469 11.4825C7.59482 11.324 6.99062 11.2001 6.41212 11.0813L6.28771 11.0558C5.0004 10.7911 3.88734 10.5387 3.12082 10.0218C2.75937 9.77806 2.49733 9.48783 2.33479 9.12033C2.17068 8.74927 2.08345 8.24368 2.16408 7.53264C2.23715 6.88828 2.5283 6.48214 2.95828 6.20161C3.42023 5.90024 4.08142 5.7225 4.88666 5.66805C6.49717 5.55914 8.39859 5.96094 9.59149 6.38119C9.98217 6.51883 10.4104 6.3137 10.5481 5.92302C10.6857 5.53234 10.4806 5.10406 10.0899 4.96642C9.16504 4.64059 7.85116 4.31877 6.50293 4.199V1.60001Z" fill="white" fill-opacity="0.5"/>
                                     </svg>
-                                    <p class="dollar">471.3</p>
+                                    <p class="dollar" th:text="${usd}">471.3</p>
                                 </li>
                                 <li><svg width="17" height="19" viewBox="0 0 17 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0867 0.260902C10.5374 -0.100651 8.93814 0.107195 7.49791 0.846748C6.06145 1.58437 4.85937 2.81062 4.02367 4.3475C3.69347 4.95474 3.42503 5.60184 3.22109 6.27501H1.134C0.719789 6.27501 0.384003 6.6108 0.384003 7.02501C0.384003 7.43922 0.719789 7.77501 1.134 7.77501H2.88031C2.79254 8.34198 2.74793 8.91938 2.74793 9.50001C2.74793 10.0806 2.79254 10.658 2.88031 11.225H1.134C0.719789 11.225 0.384003 11.5608 0.384003 11.975C0.384003 12.3892 0.719789 12.725 1.134 12.725H3.22109C3.42503 13.3982 3.69347 14.0453 4.02367 14.6525C4.85938 16.1894 6.06145 17.4157 7.49791 18.1533C8.93814 18.8928 10.5374 19.1007 12.0867 18.7391C13.633 18.3783 15.0334 17.4732 16.1233 16.1683C16.3888 15.8504 16.3463 15.3774 16.0284 15.1119C15.7105 14.8464 15.2375 14.8888 14.972 15.2067C14.0678 16.2893 12.9417 16.9993 11.7458 17.2784C10.553 17.5567 9.31658 17.401 8.1831 16.8189C7.04586 16.2349 6.0508 15.2405 5.34145 13.936C5.13234 13.5514 4.95149 13.1461 4.80042 12.725H10.5856C10.9998 12.725 11.3356 12.3892 11.3356 11.975C11.3356 11.5608 10.9998 11.225 10.5856 11.225H4.40101C4.29993 10.6625 4.24793 10.0842 4.24793 9.50001C4.24793 8.91581 4.29993 8.33757 4.40101 7.77501H10.5856C10.9998 7.77501 11.3356 7.43922 11.3356 7.02501C11.3356 6.6108 10.9998 6.27501 10.5856 6.27501H4.80042C4.9515 5.85393 5.13234 5.44862 5.34145 5.06406C6.0508 3.75955 7.04586 2.76508 8.1831 2.18111C9.31658 1.59907 10.553 1.44328 11.7458 1.72165C12.9417 2.00072 14.0678 2.71068 14.972 3.79328C15.2375 4.1112 15.7105 4.15368 16.0284 3.88815C16.3463 3.62263 16.3888 3.14966 16.1233 2.83175C15.0334 1.52679 13.633 0.621761 12.0867 0.260902Z" fill="white" fill-opacity="0.5"/>
                                     </svg>
-                                    <p class="euro">520.13</p>
+                                    <p class="euro" th:text="${eur}">520.13</p>
                                 </li>
                                 <li><svg width="17" height="21" viewBox="0 0 17 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M3.52876 20.125V0.875H11.4051C12.4495 0.875 13.4512 1.3096 14.1898 2.08318C14.9283 2.85677 15.3432 3.90598 15.3432 5C15.3432 6.09402 14.9283 7.14323 14.1898 7.91682C13.4512 8.6904 12.4495 9.125 11.4051 9.125H0.90332" stroke="white" stroke-opacity="0.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     <path d="M11.4051 14.625H0.90332" stroke="white" stroke-opacity="0.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>                     
-                                    <p class="rubel">5.3</p>
+                                    <p class="rubel" th:text="${rub}">5.3</p>
                                 </li>
                             </ul>
                         </div>
@@ -107,13 +107,13 @@
             <div class="currency">
                 <ul>
                     <li><p class="kurs">USD/KZT: </p>
-                        <p class="dollar">471.3</p>
+                        <p class="dollar" th:text="${usd}">471.3</p>
                     </li>
                     <li><p class="kurs">EUR/KZT: </p>
-                        <p class="euro">520.13</p>
+                        <p class="euro" th:text="${eur}">520.13</p>
                     </li>
                     <li><p class="kurs">RUB/KZT: </p>                     
-                        <p class="rubel">5.3</p>
+                        <p class="rubel" th:text="${rub}">5.3</p>
                     </li>
                 </ul>
             </div>
@@ -124,181 +124,13 @@
                 <h4 class="interview-text" >ИНТЕРВЬЮ</h4>
                 <div class="row">
                     <div class="col-md-12">
-                        <div th:each="interviews: ${interviews}" class="row row-margin">
-                            <div class="col-sm-3">
+                        <div  class="row row-margin">
+                            <div class="col-sm-3 mb-2" th:each="interviews: ${interviews}">
                                 <div class="interview-article">
-                                    <a class="article-item" href="">
-                                        <div class="article-image"><img th:src="@{/interviews/display/{id}(id=${interviews. id})}" alt=""></div>
+                                    <a class="article-item" th:href="@{interviews/{link_name}(link_name=${interviews.link_name})}">
+                                        <div class="article-image"><img th:src="@{/interviews/display/{id}(id=${interviews.id})}" alt=""></div>
                                         <div class="image-cover"></div>
                                         <div class="article-title"><h3 th:text="${interviews.title}"></h3>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="interview-article">
-                                    <a class="article-item" href="">
-                                        <div class="article-image"><img src="/img/image 3.png" alt=""></div>
-                                        <div class="image-cover"></div>
-                                        <div class="article-title"><h3>Токаев выразил соболезнования семье Юрия Померанцева</h3>
-
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="interview-article">
-                                    <a class="article-item" href="">
-                                        <div class="article-image"><img src="/img/image 4.png" alt=""></div>
-                                        <div class="image-cover"></div>
-                                        <div class="article-title"><h3>Токаев выразил соболезнования семье Юрия Померанцева</h3>
-                                            
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="interview-article">
-                                    <a class="article-item" href="">
-                                        <div class="article-image"><img src="/img/image 4.png" alt=""></div>
-                                        <div class="image-cover"></div>
-                                        <div class="article-title"><h3>Токаев выразил соболезнования семье Юрия Померанцева</h3>
-                                           
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-margin">
-                            <div class="col-sm-3">
-                                <div class="interview-article">
-                                    <a class="article-item" href="">
-                                        <div class="article-image"><img src="/img/image 2.png" alt=""></div>
-                                        <div class="image-cover"></div>
-                                        <div class="article-title"><h3>Токаев выразил соболезнования семье Юрия Померанцева aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h3>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="interview-article">
-                                    <a class="article-item" href="">
-                                        <div class="article-image"><img src="/img/image 3.png" alt=""></div>
-                                        <div class="image-cover"></div>
-                                        <div class="article-title"><h3>Токаев выразил соболезнования семье Юрия Померанцева</h3>
-                                        
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="interview-article">
-                                    <a class="article-item" href="">
-                                        <div class="article-image"><img src="/img/image 4.png" alt=""></div>
-                                        <div class="image-cover"></div>
-                                        <div class="article-title"><h3>Токаев выразил соболезнования семье Юрия Померанцева</h3>
-                                            
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="interview-article">
-                                    <a class="article-item" href="">
-                                        <div class="article-image"><img src="/img/image 4.png" alt=""></div>
-                                        <div class="image-cover"></div>
-                                        <div class="article-title"><h3>Токаев выразил соболезнования семье Юрия Померанцева</h3>
-                                           
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-margin">
-                            <div class="col-sm-3">
-                                <div class="interview-article">
-                                    <a class="article-item" href="">
-                                        <div class="article-image"><img src="/img/image 2.png" alt=""></div>
-                                        <div class="image-cover"></div>
-                                        <div class="article-title"><h3>Токаев выразил соболезнования семье Юрия Померанцева aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h3>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="interview-article">
-                                    <a class="article-item" href="">
-                                        <div class="article-image"><img src="/img/image 3.png" alt=""></div>
-                                        <div class="image-cover"></div>
-                                        <div class="article-title"><h3>Токаев выразил соболезнования семье Юрия Померанцева</h3>
-                                        
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="interview-article">
-                                    <a class="article-item" href="">
-                                        <div class="article-image"><img src="/img/image 4.png" alt=""></div>
-                                        <div class="image-cover"></div>
-                                        <div class="article-title"><h3>Токаев выразил соболезнования семье Юрия Померанцева</h3>
-                                            
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="interview-article">
-                                    <a class="article-item" href="">
-                                        <div class="article-image"><img src="/img/image 4.png" alt=""></div>
-                                        <div class="image-cover"></div>
-                                        <div class="article-title"><h3>Токаев выразил соболезнования семье Юрия Померанцева</h3>
-                                           
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-margin">
-                            <div class="col-sm-3">
-                                <div class="interview-article">
-                                    <a class="article-item" href="">
-                                        <div class="article-image"><img src="/img/image 2.png" alt=""></div>
-                                        <div class="image-cover"></div>
-                                        <div class="article-title"><h3>Токаев выразил соболезнования семье Юрия Померанцева aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h3>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="interview-article">
-                                    <a class="article-item" href="">
-                                        <div class="article-image"><img src="/img/image 3.png" alt=""></div>
-                                        <div class="image-cover"></div>
-                                        <div class="article-title"><h3>Токаев выразил соболезнования семье Юрия Померанцева</h3>
-                                        
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="interview-article">
-                                    <a class="article-item" href="">
-                                        <div class="article-image"><img src="/img/image 4.png" alt=""></div>
-                                        <div class="image-cover"></div>
-                                        <div class="article-title"><h3>Токаев выразил соболезнования семье Юрия Померанцева</h3>
-                                            
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="interview-article">
-                                    <a class="article-item" href="">
-                                        <div class="article-image"><img src="/img/image 4.png" alt=""></div>
-                                        <div class="image-cover"></div>
-                                        <div class="article-title"><h3>Токаев выразил соболезнования семье Юрия Померанцева</h3>
-                                           
                                         </div>
                                     </a>
                                 </div>
@@ -308,7 +140,15 @@
                 </div>
 
                 <div class="show-more">
-                    <button class="btn-more">Показать еще</button>
+                    <div th:if="${currentPage} != 0">
+                        <a th:href="@{/interviews(page=${currentPage}-1)}"><button class="btn-more">Предыдущая страница</button></a>
+                    </div>
+                    <div th:unless="${currentPage} != 0">
+                        <a th:href="@{/interviews?page=0}"><button class="btn-more">Предыдущая страница</button></a>
+                    </div>
+                    <div th:if="${currentPage}+1 < ${maxNumberOfPages}">
+                        <a th:href="@{/interviews(page=${currentPage}+1)}"><button class="btn-more">Следующая страница</button></a>
+                    </div>
                 </div>
             </div>
         </section>

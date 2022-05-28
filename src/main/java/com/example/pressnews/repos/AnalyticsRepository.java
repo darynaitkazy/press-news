@@ -12,6 +12,9 @@ public interface AnalyticsRepository extends JpaRepository<Analytics, Long> {
     @Query("SELECT n FROM Analytics n WHERE n.link_name = ?1")
     Optional<Analytics> getAnalyticsByLink_name(String link_name);
 
+    @Query(value = "SELECT COUNT(*) FROM Analytics", nativeQuery = true)
+    Integer countAllAnalytics();
+
     @Query(value = "SELECT * FROM Analytics ORDER BY views DESC LIMIT 7", nativeQuery = true)
     List<Analytics> getPopuparSevenAnalytics();
 }

@@ -431,12 +431,12 @@ header .currency ul li svg{
 }
 
 .show-more{
-    width: 100%;
+    width: 90%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
     margin-top: 40px;
 }
+
 
 .show-more .btn-more{
     width: 250px;
@@ -445,14 +445,15 @@ header .currency ul li svg{
     outline: none;
     border-radius: 5px;
     color: #fff;
-    background-color: #c20017;
+    background-color: rgba(47, 4, 168, 0.8);
     transition: .3s;
 }
 
 .btn-more:hover{
     background-color: #fff;
-    color: #c20017;
+    color: rgba(47, 4, 168, 0.8);
 }
+
 
 
 

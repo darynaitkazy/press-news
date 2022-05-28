@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Все аналитики</title>
+    <link rel="stylesheet" href="/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/allnews.css">
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="logo">
+                <a href="/admin">
+                    <p>P</p>
+                    <p>RESS.KZ</p>
+                </a>
+            </div>
+            <ul class="header-nav">
+                <li><a href="/admin/news">Новости</a></li>
+                <li><a href="/admin/analytics">Аналитика</a></li>
+                <li><a href="/admin/interviews">Интервью</a></li>
+                <li><a href="/admin/opinions">Мнения</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<section class="allnews">
+    <div class="container">
+        <h6 class="allnews-section-title">ГЛАВНАЯ / АНАЛИТИКА</h6>
+        <h4>АНАЛИТИКА</h4>
+        <div style="margin-bottom: 20px;">
+            <a class="btn-success" th:href="@{/admin/add-analytics/}" style="padding: 10px;">Добавить аналитику</a><br>
+        </div>
+
+        <div th:each="analytics: ${analytics}" class="row">
+            <div class="col-lg-10">
+                <a th:href="@{/admin/analytics/{link_name}(link_name=${analytics.link_name})}" class="news-card">
+                    <div class="card-img">
+                        <img th:src="@{/analytics/display/{id}(id=${analytics.id})}" alt="">
+                    </div>
+                    <div class="card-text">
+                        <h6 class="cardheader" th:text="${analytics.title}"></h6>
+                        <p class="card-short-description" th:text="${analytics.description}"></p>
+                        <p class="news-date"><span class="date" th:text="${#dates.format(analytics.createDate, 'dd/MM/yyyy')}"></span>
+                            <span class="time" th:text="${#dates.format(analytics.createTime, 'HH:mm')}"></span></p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-2">
+                <a class="btn btn-primary" th:href="@{/admin/analytics/{link_name}/edit(link_name=${analytics.link_name})}">Редактировать</a>
+                <form th:action="@{/admin/analytics/{link_name}/delete(link_name=${analytics.link_name})}" method="POST">
+                    <button class="btn btn-danger" type="submit">Удалить</button>
+                </form>
+            </div>
+        </div>
+        <div class="show-more">
+            <div th:if="${currentPage} != 0">
+                <a th:href="@{/admin/analytics(page=${currentPage}-1)}"><button class="btn-more">Предыдущая страница</button></a>
+            </div>
+            <div th:unless="${currentPage} != 0">
+                <a th:href="@{/admin/analytics?page=0}"><button class="btn-more">Предыдущая страница</button></a>
+            </div>
+            <div th:if="${currentPage}+1 < ${maxNumberOfPages}">
+                <a th:href="@{/admin/analytics(page=${currentPage}+1)}"><button class="btn-more">Следующая страница</button></a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

@@ -54,7 +54,7 @@ $('.recommendation .slick_slide').slick({
     dots: true,
     speed: 800,
     autoplaySpeed: 1000,
-    prevArrow: '<img src="img/left.svg" class="left_arrow">',
-    nextArrow: '<img src="img/right.svg" class="right_arrow">',
-   
+    prevArrow: '<img src="/img/left.svg" class="left_arrow">',
+    nextArrow: '<img src="/img/right.svg" class="right_arrow">',
+
 });

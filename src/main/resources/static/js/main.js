@@ -1,9 +1,12 @@
 function changeLang(){
     var lang = document.getElementById('currentLang');
+
     if (lang.textContent == "RU") {
         lang.textContent = "KZ";
+        window.location = "http://localhost:8085/kaz/";
     } else {
         lang.textContent = "RU";
+        window.location = "http://localhost:8085/";
     }
 }
 

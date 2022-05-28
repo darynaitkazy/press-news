@@ -7,7 +7,9 @@
     <title>Статья</title>
     <link rel="stylesheet" href="/bootstrap-4.3.1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/article.css">
-    <link rel="stylesheet" href="/css/slick.css">
+    <link rel="stylesheet" th:href="@{/css/slick.css}">
+    <script src="https://cdn.tiny.cloud/1/yo2ewtl720e7ti7w7u2rt4m6mecy9uaod6pwbahjob4rhlu5/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
 </head>
 <body>
         <header>
@@ -20,9 +22,9 @@
                         </a>
                     </div>
                     <ul class="header-nav">
-                        <li><a href="/allnews">Новости</a></li>
+                        <li><a href="/news">Новости</a></li>
                         <li><a href="/analytics">Аналитика</a></li>
-                        <li><a href="/interview">Интервью</a></li>
+                        <li><a href="/interviews">Интервью</a></li>
                         <li><a href="/opinions">Мнения</a></li>
                     </ul>
                     <div class="header-right">
@@ -61,9 +63,9 @@
                     <div class="container">
                                 <div class="nav-item">
                                     <ul>
-                                        <li><a href="/main">Новости</a></li>
+                                        <li><a href="/news">Новости</a></li>
                                         <li><a href="/analytics">Аналитика</a></li>
-                                        <li><a href="/interview">Интервью</a></li>
+                                        <li><a href="/interviews">Интервью</a></li>
                                         <li><a href="/opinions">Мнения</a></li>
                                     </ul>
                                 </div>
@@ -123,7 +125,18 @@
 
         <section class="article">
             <div class="container">
-                <h6 class="article-section-title">ГЛАВНАЯ / <span class="type">НОВОСТИ</span> / <span class="title" th:text="${title}"></span></h6>
+                <h6 class="article-section-title" th:if="${type} == 1">
+                    ГЛАВНАЯ / <span class="type">НОВОСТИ</span> / <span class="title" th:text="${title}"></span>
+                </h6>
+                <h6 class="article-section-title" th:if="${type} == 2">
+                    ГЛАВНАЯ / <span class="type">АНАЛИТИКА</span> / <span class="title" th:text="${title}"></span>
+                </h6>
+                <h6 class="article-section-title" th:if="${type} == 3">
+                    ГЛАВНАЯ / <span class="type">ИНТЕРВЬЮ</span> / <span class="title" th:text="${title}"></span>
+                </h6>
+                <h6 class="article-section-title" th:if="${type} == 4">
+                    ГЛАВНАЯ / <span class="type">МНЕНИЯ</span> / <span class="title" th:text="${title}"></span>
+                </h6>
 
                 <div class="row">
                     <div class="col-lg-9">
@@ -170,9 +183,22 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="article-img"><img th:src="@{/news/display/{id}(id=${id})}" alt=""></div>
-                        <div class="article-text"><p class="text" th:text="${text}">
-                            </p></div>
+                        <div class="article-img" th:if="${type}==1">
+                            <img th:src="@{/news/display/{id}(id=${id})}" alt="">
+                        </div>
+                        <div class="article-img" th:if="${type}==2">
+                            <img th:src="@{/analytics/display/{id}(id=${id})}" alt="">
+                        </div>
+                        <div class="article-img" th:if="${type}==3">
+                            <img th:src="@{/interviews/display/{id}(id=${id})}" alt="">
+                        </div>
+                        <div class="article-img" th:if="${type}==4">
+                            <img th:src="@{/opinions/display/{id}(id=${id})}" alt="">
+                        </div>
+                        <div class="article-text"><div class="text">
+                            <p th:utext="${text}"></p>
+                            </div>
+                        </div>
                         
                             <div class="article-editor"><p>Источник: <a href="/main">PRESS.KZ</a></p></div>
                     </div>
@@ -183,106 +209,21 @@
                                     <div class="last-news"><h5>Просматриваемые <span class="type">новости</span></h5></div>
                                 </div>
                                 <div class="news-content-items">
-                                    <ul>
+                                    <ul th:each="popular : ${popularNewsForArticle}">
                                         <li class="news-item"> 
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы</p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев </p>
-                                                </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы</p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
+                                            <a th:href="@{news/{link_name}(link_name=${popular.link_name})}">
+                                                <p class="news-time">
+                                                    <span class="date" th:text="${#dates.format(popular.createDate, 'dd/MM/yyyy')}"></span>
+                                                    <span class="time" th:text="${#dates.format(popular.createTime, 'HH:mm')}"></span>
+                                                </p>
+                                                <p class="news-title" th:text="${popular.title}"></p>
+                                                <p class="news-description" th:text="${popular.description}">Об этом сказал аким города Ерболат Досаев </p>
                                             </a>
                                         </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                         </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a>
-                                        </li>
-                                        <li class="news-item">
-                                            <a href=""><p class="news-time">30 минут назад</p>
-                                                <p class="news-title">В течение 3 лет модернизируют инфраструктуру системы здравоохранения Алматы
-                                                </p>
-                                                <p class="news-description">Об этом сказал аким города Ерболат Досаев</p>
-                                            </a></li>
                                     </ul>
                                 </div>
                                 <div class="news-content-bottom">
-                                    <a class="all-news" href="/allnews">ВСЕ НОВОСТИ</a>
+                                    <a class="all-news" href="/news">ВСЕ НОВОСТИ</a>
                                 </div>
                             </div>
                         </div>
@@ -295,71 +236,16 @@
             <div class="container">
                 <h4>Читайте также</h4>
                 <div class="row slick_slide">
-                    <div class="col-2">
+                    <div class="col-2" th:each="recent: ${recentNewsForArticle}">
                         <div class="card">
-                            <a href="">
-                                <div class="card-img"><img src="/img/image 2.png" class="card-img-top" alt="..."></div>
+                            <a th:href="@{news/{link_name}(link_name=${recent.link_name})}">
+                                <div class="card-img"><img th:src="@{/news/display/{id}(id=${recent.id})}" class="card-img-top" alt="..."></div>
                                 <div class="card-body">
-                                <p class="card-text">Погрузка нефти на терминале КТК полностью остановлена </p>
+                                <p class="card-text" th:text="${recent.description}">Погрузка нефти на терминале КТК полностью остановлена </p>
                                 </div>
                             </a>
-                          </div>
                     </div>
-    
-                    <div class="col-2">
-                        <div class="card">
-                            <a href="">
-                                <div class="card-img"><img src="/img/image 3.png" class="card-img-top" alt="..."></div>
-                                <div class="card-body">
-                                <p class="card-text">Погрузка нефти на терминале КТК полностью остановлена </p>
-                                </div>
-                            </a>
-                          </div>
-                    </div>
-    
-                    <div class="col-2">
-                        <div class="card">
-                            <a href="">
-                                <div class="card-img"><img src="/img/image 4.png" class="card-img-top" alt="..."></div>
-                                <div class="card-body">
-                                <p class="card-text">Погрузка нефти на терминале КТК полностью остановлена </p>
-                                </div>
-                            </a>
-                          </div>
-                    </div>
-    
-                    <div class="col-2">
-                        <div class="card">
-                            <a href="">
-                                <div class="card-img"><img src="/img/image 5.png" class="card-img-top" alt="..."></div>
-                                <div class="card-body">
-                                <p class="card-text">Погрузка нефти на терминале КТК полностью остановлена </p>
-                                </div>
-                            </a>
-                          </div>
-                    </div>
-
-                    <div class="col-2">
-                        <div class="card">
-                            <a href="">
-                                <div class="card-img"><img src="/img/image 1.png" class="card-img-top" alt="..."></div>
-                                <div class="card-body">
-                                <p class="card-text">Погрузка нефти на терминале КТК полностью остановлена </p>
-                                </div>
-                            </a>
-                          </div>
-                    </div>
-
-                    <div class="col-2">
-                        <div class="card">
-                            <a href="">
-                                <div class="card-img"><img src="/img/image 6.png" class="card-img-top" alt="..."></div>
-                                <div class="card-body">
-                                <p class="card-text">Погрузка нефти на терминале КТК полностью остановлена </p>
-                                </div>
-                            </a>
-                          </div>
-                    </div>
+                </div>
                 </div>
             </div>
         </section>
@@ -413,11 +299,10 @@
                 </div>
             </div>
         </footer>
-
-        <script src="/js/main.js"></script>
-        <script src="/js/jquery.js"></script>
-        <script src="/js/jquerymigrate.js"></script>
-        <script src="/js/slick.min.js"></script>
-        <script src="/js/custom.js"></script>
+        <script th:src="@{/js/main.js}"></script>
+        <script th:src="@{/js/jquery.js}"></script>
+        <script th:src="@{/js/jquerymigrate.js}"></script>
+        <script th:src="@{/js/slick.min.js}"></script>
+        <script th:src="@{/js/custom.js}"></script>
 </body>
 </html>

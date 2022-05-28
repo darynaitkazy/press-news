@@ -4,8 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.sql.Date;
 import java.sql.Time;
+import java.util.Date;
 
 @Entity
 public class Opinions {
@@ -13,28 +13,40 @@ public class Opinions {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private long author_id;
-    private String title;
-    private java.sql.Date date;
-    private java.sql.Time time;
-    private String img;
-    private String text;
+    private Date createDate;
+    private long createTime;
+    private byte[] img;
     private long views;
-    private int time_to_read;
+    private String link_name;
+    private String author;
+    private String author_position;
+    private String title;
+    private String text;
+    private String author_position_kaz;
+    private String title_kaz;
+    private String text_kaz;
+    private String link_name_kaz;
 
-    public Opinions () {
+    public Opinions() {
 
     }
 
-    public Opinions(long id, long author_id, String title, Date date, Time time, String img, String text, long views, int time_to_read) {
+    public Opinions(long id, long author_id, Date createDate, long createTime, byte[] img, long views, String link_name, String author, String author_position, String title, String text, String author_position_kaz, String title_kaz, String text_kaz, String link_name_kaz) {
         this.id = id;
         this.author_id = author_id;
-        this.title = title;
-        this.date = date;
-        this.time = time;
+        this.createDate = createDate;
+        this.createTime = createTime;
         this.img = img;
-        this.text = text;
         this.views = views;
-        this.time_to_read = time_to_read;
+        this.link_name = link_name;
+        this.author = author;
+        this.author_position = author_position;
+        this.title = title;
+        this.text = text;
+        this.author_position_kaz = author_position_kaz;
+        this.title_kaz = title_kaz;
+        this.text_kaz = text_kaz;
+        this.link_name_kaz = link_name_kaz;
     }
 
     public long getId() {
@@ -53,44 +65,28 @@ public class Opinions {
         this.author_id = author_id;
     }
 
-    public String getTitle() {
-        return title;
+    public Date getCreateDate() {
+        return createDate;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
-    public Date getDate() {
-        return date;
+    public long getCreateTime() {
+        return createTime;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setCreateTime(long createTime) {
+        this.createTime = createTime;
     }
 
-    public Time getTime() {
-        return time;
-    }
-
-    public void setTime(Time time) {
-        this.time = time;
-    }
-
-    public String getImg() {
+    public byte[] getImg() {
         return img;
     }
 
-    public void setImg(String img) {
+    public void setImg(byte[] img) {
         this.img = img;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
     }
 
     public long getViews() {
@@ -101,11 +97,75 @@ public class Opinions {
         this.views = views;
     }
 
-    public int getTime_to_read() {
-        return time_to_read;
+    public String getLink_name() {
+        return link_name;
     }
 
-    public void setTime_to_read(int time_to_read) {
-        this.time_to_read = time_to_read;
+    public void setLink_name(String link_name) {
+        this.link_name = link_name;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getAuthor_position() {
+        return author_position;
+    }
+
+    public void setAuthor_position(String author_position) {
+        this.author_position = author_position;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public String getAuthor_position_kaz() {
+        return author_position_kaz;
+    }
+
+    public void setAuthor_position_kaz(String author_position_kaz) {
+        this.author_position_kaz = author_position_kaz;
+    }
+
+    public String getTitle_kaz() {
+        return title_kaz;
+    }
+
+    public void setTitle_kaz(String title_kaz) {
+        this.title_kaz = title_kaz;
+    }
+
+    public String getText_kaz() {
+        return text_kaz;
+    }
+
+    public void setText_kaz(String text_kaz) {
+        this.text_kaz = text_kaz;
+    }
+
+    public String getLink_name_kaz() {
+        return link_name_kaz;
+    }
+
+    public void setLink_name_kaz(String link_name_kaz) {
+        this.link_name_kaz = link_name_kaz;
     }
 }

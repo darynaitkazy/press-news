@@ -438,10 +438,10 @@ input::placeholder {
 .show-more{
     width: 90%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
     margin-top: 40px;
 }
+
 
 .show-more .btn-more{
     width: 250px;
@@ -450,13 +450,18 @@ input::placeholder {
     outline: none;
     border-radius: 5px;
     color: #fff;
-    background-color: #c20017;
+    background-color: rgba(47, 4, 168, 0.8);
     transition: .3s;
 }
 
 .btn-more:hover{
     background-color: #fff;
-    color: #c20017;
+    color: rgba(47, 4, 168, 0.8);
+}
+
+.search-button {
+    border: none;
+    background-color: white;
 }
 
 

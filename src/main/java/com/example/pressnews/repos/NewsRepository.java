@@ -16,6 +16,21 @@ public interface NewsRepository extends JpaRepository<News, Long> {
     Optional<News>getNewsByLink_name(String link_name);
 
     @Query(value = "SELECT * FROM News ORDER BY views DESC LIMIT 11", nativeQuery = true)
-    List<News> getPopuparElevenNews();
+    List<News> getPopularElevenNews();
+
+    @Query(value = "SELECT * FROM News ORDER BY views DESC LIMIT 14", nativeQuery = true)
+    List<News> getPopularFourteenNews();
+
+    @Query(value = "SELECT * FROM News ORDER BY create_date DESC LIMIT 14", nativeQuery = true)
+    List<News> getRecentFourteenNews();
+
+    @Query(value = "SELECT COUNT(*) FROM News", nativeQuery = true)
+    Integer countAllNews();
+
+    @Query(value = "select COUNT(*) from News n where n.title like %:keyword or n.description like %:keyword or n.text like %:keyword", nativeQuery = true)
+    Integer countAllNewsByKeyword();
+
+    @Query(value = "select * from News n where n.title like %:keyword% or n.description like %:keyword% or n.text like %:keyword%", nativeQuery = true)
+    List<News>findByKeyword(@Param("keyword") String keyword);
 
 }

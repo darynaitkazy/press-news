@@ -5,6 +5,10 @@ import com.example.pressnews.model.Interviews;
 import com.example.pressnews.model.News;
 import com.example.pressnews.repos.AnalyticsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -23,8 +27,16 @@ public class AnalyticsServiceImpl implements AnalyticsService{
     }
 
     @Override
-    public List<Analytics> getAllAnalytics() {
-        return analyticsRepository.findAll();
+    public Page<Analytics> getAllAnalytics(Integer page, Integer pageSize, String sortingField, String sortingDirection,
+                                 String sortingFieldTime) {
+        Sort sort = Sort.by(Sort.Direction.valueOf(sortingDirection), sortingField, sortingFieldTime);
+        Pageable pageable = PageRequest.of(page, pageSize, sort);
+        return analyticsRepository.findAll(pageable);
+    }
+
+    @Override
+    public Integer countAllAnalytics() {
+        return analyticsRepository.countAllAnalytics();
     }
 
     @Override
@@ -40,6 +52,11 @@ public class AnalyticsServiceImpl implements AnalyticsService{
     @Override
     public List<Analytics> getPopuparSevenAnalytics() {
         return analyticsRepository.getPopuparSevenAnalytics();
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        analyticsRepository.deleteById(id);
     }
 
 }
