@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity
@@ -14,8 +16,7 @@ public class News {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private long author_id;
-    private Date createDate;
-    private long createTime;
+    private Timestamp createDate;
     private byte[] img;
     private long views;
     private String link_name;
@@ -32,11 +33,10 @@ public class News {
 
     }
 
-    public News(long id, long author_id, Date createDate, long createTime, byte[] img, long views, String link_name, String title, String description, String text, String title_kaz, String description_kaz, String text_kaz, String link_name_kaz) {
+    public News(long id, long author_id, Timestamp createDate, byte[] img, long views, String link_name, String title, String description, String text, String title_kaz, String description_kaz, String text_kaz, String link_name_kaz) {
         this.id = id;
         this.author_id = author_id;
         this.createDate = createDate;
-        this.createTime = createTime;
         this.img = img;
         this.views = views;
         this.link_name = link_name;
@@ -65,21 +65,14 @@ public class News {
         this.author_id = author_id;
     }
 
-    public Date getCreateDate() {
+    public Timestamp getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Date createDate) {
+    public void setCreateDate(Timestamp createDate) {
         this.createDate = createDate;
     }
 
-    public long getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(long createTime) {
-        this.createTime = createTime;
-    }
 
     public byte[] getImg() {
         return img;

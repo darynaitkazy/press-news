@@ -93,7 +93,6 @@ public class NewsControllerKaz {
                         news.get().getId(),
                         news.get().getAuthor_id(),
                         news.get().getCreateDate(),
-                        news.get().getCreateTime(),
                         news.get().getImg(),
                         news.get().getViews()+1,
                         news.get().getLink_name(),
@@ -111,7 +110,6 @@ public class NewsControllerKaz {
                     model.addAttribute("author_id", news.get().getAuthor_id());
                     model.addAttribute("title", news.get().getTitle());
                     model.addAttribute("createDate", news.get().getCreateDate());
-                    model.addAttribute("createTime", news.get().getCreateTime());
                     model.addAttribute("description", news.get().getDescription());
                     model.addAttribute("text", news.get().getText());
                     model.addAttribute("views", news.get().getViews());

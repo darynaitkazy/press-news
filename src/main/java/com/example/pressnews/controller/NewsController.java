@@ -25,6 +25,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -104,8 +105,11 @@ public class NewsController {
                 model.addAttribute("invalid", "Sorry! Filename contains invalid path sequence \" + filename");
                 return new ResponseEntity<>("Sorry! Filename contains invalid path sequence " + fileName, HttpStatus.BAD_REQUEST);
             }
+            Timestamp createDate = new Timestamp(System.currentTimeMillis());
+            /*
             Date createDate = new Date();
             long createTime = createDate.getTime();
+            */
             try {
                 File dir = new File(uploadDirectory);
                 if (!dir.exists()) {
@@ -127,12 +131,12 @@ public class NewsController {
             news.setLink_name(link_name);
             news.setImg(imageData);
             news.setCreateDate(createDate);
-            news.setCreateTime(createTime);
             news.setText_kaz(txt_kaz);
             news.setTitle_kaz(title_kaz);
             news.setDescription_kaz(description_kaz);
             news.setLink_name_kaz(link_name_kaz);
             newsService.saveNews(news);
+            System.out.println(createDate);
             return new ResponseEntity<>("Product Saved With File - " + fileName, HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
@@ -158,7 +162,6 @@ public class NewsController {
                         news.get().getId(),
                         news.get().getAuthor_id(),
                         news.get().getCreateDate(),
-                        news.get().getCreateTime(),
                         news.get().getImg(),
                         news.get().getViews()+1,
                         news.get().getLink_name(),
@@ -176,7 +179,6 @@ public class NewsController {
                     model.addAttribute("author_id", news.get().getAuthor_id());
                     model.addAttribute("title", news.get().getTitle());
                     model.addAttribute("createDate", news.get().getCreateDate());
-                    model.addAttribute("createTime", news.get().getCreateTime());
                     model.addAttribute("description", news.get().getDescription());
                     model.addAttribute("text", news.get().getText());
                     model.addAttribute("views", news.get().getViews());
@@ -241,7 +243,6 @@ public class NewsController {
         news.setDescription_kaz(description_kaz);
         news.setTitle_kaz(title_kaz);
         news.setText_kaz(txt_kaz);
-        news.setCreateTime(news.getCreateTime());
         news.setCreateDate(news.getCreateDate());
         news.setAuthor_id(news.getAuthor_id());
         news.setLink_name_kaz(link_name_kaz);

@@ -23,6 +23,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -95,8 +96,7 @@ public class OpinionsController {
                 model.addAttribute("invalid", "Sorry! Filename contains invalid path sequence \" + filename");
                 return new ResponseEntity<>("Sorry! Filename contains invalid path sequence " + fileName, HttpStatus.BAD_REQUEST);
             }
-            Date createDate = new Date();
-            long createTime = createDate.getTime();
+            Timestamp createDate = new Timestamp(System.currentTimeMillis());
             try {
                 File dir = new File(uploadDirectory);
                 if (!dir.exists()) {
@@ -117,7 +117,6 @@ public class OpinionsController {
             opinions.setLink_name(link_name);
             opinions.setImg(imageData);
             opinions.setCreateDate(createDate);
-            opinions.setCreateTime(createTime);
             opinions.setAuthor_position(author_position);
             opinions.setViews(0);
             opinions.setAuthor_position_kaz(author_position_kaz);

@@ -25,6 +25,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -95,8 +96,7 @@ public class InterviewController {
                 model.addAttribute("invalid", "Sorry! Filename contains invalid path sequence \" + filename");
                 return new ResponseEntity<>("Sorry! Filename contains invalid path sequence " + fileName, HttpStatus.BAD_REQUEST);
             }
-            Date createDate = new Date();
-            long createTime = createDate.getTime();
+            Timestamp createDate = new Timestamp(System.currentTimeMillis());
             try {
                 File dir = new File(uploadDirectoryInterview);
                 if (!dir.exists()) {
@@ -118,7 +118,6 @@ public class InterviewController {
             interview.setText(txt);
             interview.setImg(imageData);
             interview.setCreateDate(createDate);
-            interview.setCreateTime(createTime);
             interview.setTime_to_read(time_to_read);
             interview.setDescription_kaz(description_kaz);
             interview.setLink_name_kaz(link_name_kaz);
